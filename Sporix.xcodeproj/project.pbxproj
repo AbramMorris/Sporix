@@ -1,0 +1,623 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CEB1DA232DE74DB1009F8AB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1DA222DE74DB1009F8AB7 /* AppDelegate.swift */; };
+		CEB1DA252DE74DB1009F8AB7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1DA242DE74DB1009F8AB7 /* SceneDelegate.swift */; };
+		CEB1DA272DE74DB1009F8AB7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1DA262DE74DB1009F8AB7 /* ViewController.swift */; };
+		CEB1DA2A2DE74DB2009F8AB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEB1DA282DE74DB2009F8AB7 /* Main.storyboard */; };
+		CEB1DA2D2DE74DB2009F8AB7 /* Sporix.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CEB1DA2B2DE74DB2009F8AB7 /* Sporix.xcdatamodeld */; };
+		CEB1DA2F2DE74DCB009F8AB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEB1DA2E2DE74DCB009F8AB7 /* Assets.xcassets */; };
+		CEB1DA322DE74DCB009F8AB7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEB1DA302DE74DCB009F8AB7 /* LaunchScreen.storyboard */; };
+		CEB1DA3D2DE74DCD009F8AB7 /* SporixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1DA3C2DE74DCD009F8AB7 /* SporixTests.swift */; };
+		CEB1DA472DE74DCD009F8AB7 /* SporixUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1DA462DE74DCD009F8AB7 /* SporixUITests.swift */; };
+		CEB1DA492DE74DCD009F8AB7 /* SporixUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1DA482DE74DCD009F8AB7 /* SporixUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CEB1DA392DE74DCD009F8AB7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEB1DA172DE74DB1009F8AB7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CEB1DA1E2DE74DB1009F8AB7;
+			remoteInfo = Sporix;
+		};
+		CEB1DA432DE74DCD009F8AB7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEB1DA172DE74DB1009F8AB7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CEB1DA1E2DE74DB1009F8AB7;
+			remoteInfo = Sporix;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CEB1DA1F2DE74DB1009F8AB7 /* Sporix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sporix.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEB1DA222DE74DB1009F8AB7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CEB1DA242DE74DB1009F8AB7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		CEB1DA262DE74DB1009F8AB7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CEB1DA292DE74DB2009F8AB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CEB1DA2C2DE74DB2009F8AB7 /* Sporix.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Sporix.xcdatamodel; sourceTree = "<group>"; };
+		CEB1DA2E2DE74DCB009F8AB7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CEB1DA312DE74DCB009F8AB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CEB1DA332DE74DCB009F8AB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEB1DA382DE74DCD009F8AB7 /* SporixTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SporixTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEB1DA3C2DE74DCD009F8AB7 /* SporixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SporixTests.swift; sourceTree = "<group>"; };
+		CEB1DA422DE74DCD009F8AB7 /* SporixUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SporixUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEB1DA462DE74DCD009F8AB7 /* SporixUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SporixUITests.swift; sourceTree = "<group>"; };
+		CEB1DA482DE74DCD009F8AB7 /* SporixUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SporixUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CEB1DA1C2DE74DB1009F8AB7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEB1DA352DE74DCD009F8AB7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEB1DA3F2DE74DCD009F8AB7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CEB1DA162DE74DB1009F8AB7 = {
+			isa = PBXGroup;
+			children = (
+				CEB1DA212DE74DB1009F8AB7 /* Sporix */,
+				CEB1DA3B2DE74DCD009F8AB7 /* SporixTests */,
+				CEB1DA452DE74DCD009F8AB7 /* SporixUITests */,
+				CEB1DA202DE74DB1009F8AB7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CEB1DA202DE74DB1009F8AB7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CEB1DA1F2DE74DB1009F8AB7 /* Sporix.app */,
+				CEB1DA382DE74DCD009F8AB7 /* SporixTests.xctest */,
+				CEB1DA422DE74DCD009F8AB7 /* SporixUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CEB1DA212DE74DB1009F8AB7 /* Sporix */ = {
+			isa = PBXGroup;
+			children = (
+				CEB1DA222DE74DB1009F8AB7 /* AppDelegate.swift */,
+				CEB1DA242DE74DB1009F8AB7 /* SceneDelegate.swift */,
+				CEB1DA262DE74DB1009F8AB7 /* ViewController.swift */,
+				CEB1DA282DE74DB2009F8AB7 /* Main.storyboard */,
+				CEB1DA2E2DE74DCB009F8AB7 /* Assets.xcassets */,
+				CEB1DA302DE74DCB009F8AB7 /* LaunchScreen.storyboard */,
+				CEB1DA332DE74DCB009F8AB7 /* Info.plist */,
+				CEB1DA2B2DE74DB2009F8AB7 /* Sporix.xcdatamodeld */,
+			);
+			path = Sporix;
+			sourceTree = "<group>";
+		};
+		CEB1DA3B2DE74DCD009F8AB7 /* SporixTests */ = {
+			isa = PBXGroup;
+			children = (
+				CEB1DA3C2DE74DCD009F8AB7 /* SporixTests.swift */,
+			);
+			path = SporixTests;
+			sourceTree = "<group>";
+		};
+		CEB1DA452DE74DCD009F8AB7 /* SporixUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CEB1DA462DE74DCD009F8AB7 /* SporixUITests.swift */,
+				CEB1DA482DE74DCD009F8AB7 /* SporixUITestsLaunchTests.swift */,
+			);
+			path = SporixUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CEB1DA1E2DE74DB1009F8AB7 /* Sporix */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CEB1DA4C2DE74DCD009F8AB7 /* Build configuration list for PBXNativeTarget "Sporix" */;
+			buildPhases = (
+				CEB1DA1B2DE74DB1009F8AB7 /* Sources */,
+				CEB1DA1C2DE74DB1009F8AB7 /* Frameworks */,
+				CEB1DA1D2DE74DB1009F8AB7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Sporix;
+			productName = Sporix;
+			productReference = CEB1DA1F2DE74DB1009F8AB7 /* Sporix.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CEB1DA372DE74DCD009F8AB7 /* SporixTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CEB1DA4F2DE74DCD009F8AB7 /* Build configuration list for PBXNativeTarget "SporixTests" */;
+			buildPhases = (
+				CEB1DA342DE74DCD009F8AB7 /* Sources */,
+				CEB1DA352DE74DCD009F8AB7 /* Frameworks */,
+				CEB1DA362DE74DCD009F8AB7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CEB1DA3A2DE74DCD009F8AB7 /* PBXTargetDependency */,
+			);
+			name = SporixTests;
+			productName = SporixTests;
+			productReference = CEB1DA382DE74DCD009F8AB7 /* SporixTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CEB1DA412DE74DCD009F8AB7 /* SporixUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CEB1DA522DE74DCD009F8AB7 /* Build configuration list for PBXNativeTarget "SporixUITests" */;
+			buildPhases = (
+				CEB1DA3E2DE74DCD009F8AB7 /* Sources */,
+				CEB1DA3F2DE74DCD009F8AB7 /* Frameworks */,
+				CEB1DA402DE74DCD009F8AB7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CEB1DA442DE74DCD009F8AB7 /* PBXTargetDependency */,
+			);
+			name = SporixUITests;
+			productName = SporixUITests;
+			productReference = CEB1DA422DE74DCD009F8AB7 /* SporixUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CEB1DA172DE74DB1009F8AB7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					CEB1DA1E2DE74DB1009F8AB7 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					CEB1DA372DE74DCD009F8AB7 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = CEB1DA1E2DE74DB1009F8AB7;
+					};
+					CEB1DA412DE74DCD009F8AB7 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = CEB1DA1E2DE74DB1009F8AB7;
+					};
+				};
+			};
+			buildConfigurationList = CEB1DA1A2DE74DB1009F8AB7 /* Build configuration list for PBXProject "Sporix" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CEB1DA162DE74DB1009F8AB7;
+			productRefGroup = CEB1DA202DE74DB1009F8AB7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CEB1DA1E2DE74DB1009F8AB7 /* Sporix */,
+				CEB1DA372DE74DCD009F8AB7 /* SporixTests */,
+				CEB1DA412DE74DCD009F8AB7 /* SporixUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CEB1DA1D2DE74DB1009F8AB7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEB1DA322DE74DCB009F8AB7 /* LaunchScreen.storyboard in Resources */,
+				CEB1DA2F2DE74DCB009F8AB7 /* Assets.xcassets in Resources */,
+				CEB1DA2A2DE74DB2009F8AB7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEB1DA362DE74DCD009F8AB7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEB1DA402DE74DCD009F8AB7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CEB1DA1B2DE74DB1009F8AB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEB1DA2D2DE74DB2009F8AB7 /* Sporix.xcdatamodeld in Sources */,
+				CEB1DA272DE74DB1009F8AB7 /* ViewController.swift in Sources */,
+				CEB1DA232DE74DB1009F8AB7 /* AppDelegate.swift in Sources */,
+				CEB1DA252DE74DB1009F8AB7 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEB1DA342DE74DCD009F8AB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEB1DA3D2DE74DCD009F8AB7 /* SporixTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEB1DA3E2DE74DCD009F8AB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEB1DA472DE74DCD009F8AB7 /* SporixUITests.swift in Sources */,
+				CEB1DA492DE74DCD009F8AB7 /* SporixUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CEB1DA3A2DE74DCD009F8AB7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CEB1DA1E2DE74DB1009F8AB7 /* Sporix */;
+			targetProxy = CEB1DA392DE74DCD009F8AB7 /* PBXContainerItemProxy */;
+		};
+		CEB1DA442DE74DCD009F8AB7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CEB1DA1E2DE74DB1009F8AB7 /* Sporix */;
+			targetProxy = CEB1DA432DE74DCD009F8AB7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CEB1DA282DE74DB2009F8AB7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEB1DA292DE74DB2009F8AB7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CEB1DA302DE74DCB009F8AB7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEB1DA312DE74DCB009F8AB7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CEB1DA4A2DE74DCD009F8AB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CEB1DA4B2DE74DCD009F8AB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CEB1DA4D2DE74DCD009F8AB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Sporix/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Sporix;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CEB1DA4E2DE74DCD009F8AB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Sporix/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Sporix;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CEB1DA502DE74DCD009F8AB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SporixTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sporix.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Sporix";
+			};
+			name = Debug;
+		};
+		CEB1DA512DE74DCD009F8AB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SporixTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sporix.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Sporix";
+			};
+			name = Release;
+		};
+		CEB1DA532DE74DCD009F8AB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SporixUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Sporix;
+			};
+			name = Debug;
+		};
+		CEB1DA542DE74DCD009F8AB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SporixUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Sporix;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CEB1DA1A2DE74DB1009F8AB7 /* Build configuration list for PBXProject "Sporix" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEB1DA4A2DE74DCD009F8AB7 /* Debug */,
+				CEB1DA4B2DE74DCD009F8AB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CEB1DA4C2DE74DCD009F8AB7 /* Build configuration list for PBXNativeTarget "Sporix" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEB1DA4D2DE74DCD009F8AB7 /* Debug */,
+				CEB1DA4E2DE74DCD009F8AB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CEB1DA4F2DE74DCD009F8AB7 /* Build configuration list for PBXNativeTarget "SporixTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEB1DA502DE74DCD009F8AB7 /* Debug */,
+				CEB1DA512DE74DCD009F8AB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CEB1DA522DE74DCD009F8AB7 /* Build configuration list for PBXNativeTarget "SporixUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEB1DA532DE74DCD009F8AB7 /* Debug */,
+				CEB1DA542DE74DCD009F8AB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CEB1DA2B2DE74DB2009F8AB7 /* Sporix.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CEB1DA2C2DE74DB2009F8AB7 /* Sporix.xcdatamodel */,
+			);
+			currentVersion = CEB1DA2C2DE74DB2009F8AB7 /* Sporix.xcdatamodel */;
+			path = Sporix.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = CEB1DA172DE74DB1009F8AB7 /* Project object */;
+}
