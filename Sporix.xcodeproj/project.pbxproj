@@ -19,6 +19,10 @@
 		CEB1DA3D2DE74DCD009F8AB7 /* SporixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1DA3C2DE74DCD009F8AB7 /* SporixTests.swift */; };
 		CEB1DA472DE74DCD009F8AB7 /* SporixUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1DA462DE74DCD009F8AB7 /* SporixUITests.swift */; };
 		CEB1DA492DE74DCD009F8AB7 /* SporixUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1DA482DE74DCD009F8AB7 /* SporixUITestsLaunchTests.swift */; };
+		CEE2EF122DEB2A5300C8F15F /* Sports.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEE2EF0D2DEB286F00C8F15F /* Sports.storyboard */; };
+		CEE2EF132DEB2A9F00C8F15F /* SportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE2EF112DEB286F00C8F15F /* SportsViewController.swift */; };
+		CEE2EF142DEB2AF000C8F15F /* SportsCollectionViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = CEE2EF0F2DEB286F00C8F15F /* SportsCollectionViewCell.xib */; };
+		CEE2EF152DEB2AF000C8F15F /* SportsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE2EF102DEB286F00C8F15F /* SportsCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +60,10 @@
 		CEB1DA422DE74DCD009F8AB7 /* SporixUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SporixUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB1DA462DE74DCD009F8AB7 /* SporixUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SporixUITests.swift; sourceTree = "<group>"; };
 		CEB1DA482DE74DCD009F8AB7 /* SporixUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SporixUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CEE2EF0D2DEB286F00C8F15F /* Sports.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sports.storyboard; sourceTree = "<group>"; };
+		CEE2EF0F2DEB286F00C8F15F /* SportsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SportsCollectionViewCell.xib; sourceTree = "<group>"; };
+		CEE2EF102DEB286F00C8F15F /* SportsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsCollectionViewCell.swift; sourceTree = "<group>"; };
+		CEE2EF112DEB286F00C8F15F /* SportsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsViewController.swift; sourceTree = "<group>"; };
 		F599211CDB90F7BDAA979F50 /* Pods-Sporix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sporix.release.xcconfig"; path = "Target Support Files/Pods-Sporix/Pods-Sporix.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				CEB1DA302DE74DCB009F8AB7 /* LaunchScreen.storyboard */,
+				CEE2EF0C2DEB286F00C8F15F /* sports */,
 				CE7334782DEA50D500EDABC3 /* splash */,
 			);
 			path = View;
@@ -187,6 +196,25 @@
 				CEB1DA482DE74DCD009F8AB7 /* SporixUITestsLaunchTests.swift */,
 			);
 			path = SporixUITests;
+			sourceTree = "<group>";
+		};
+		CEE2EF0C2DEB286F00C8F15F /* sports */ = {
+			isa = PBXGroup;
+			children = (
+				CEE2EF0D2DEB286F00C8F15F /* Sports.storyboard */,
+				CEE2EF0E2DEB286F00C8F15F /* components */,
+				CEE2EF112DEB286F00C8F15F /* SportsViewController.swift */,
+			);
+			path = sports;
+			sourceTree = "<group>";
+		};
+		CEE2EF0E2DEB286F00C8F15F /* components */ = {
+			isa = PBXGroup;
+			children = (
+				CEE2EF0F2DEB286F00C8F15F /* SportsCollectionViewCell.xib */,
+				CEE2EF102DEB286F00C8F15F /* SportsCollectionViewCell.swift */,
+			);
+			path = components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,6 +323,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEE2EF122DEB2A5300C8F15F /* Sports.storyboard in Resources */,
 				CEB1DA322DE74DCB009F8AB7 /* LaunchScreen.storyboard in Resources */,
 				CE73347B2DEA527A00EDABC3 /* lottiesplash.json in Resources */,
 				CEB1DA2F2DE74DCB009F8AB7 /* Assets.xcassets in Resources */,
@@ -365,6 +394,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEE2EF142DEB2AF000C8F15F /* SportsCollectionViewCell.xib in Sources */,
+				CEE2EF152DEB2AF000C8F15F /* SportsCollectionViewCell.swift in Sources */,
+				CEE2EF132DEB2A9F00C8F15F /* SportsViewController.swift in Sources */,
 				CEB1DA2D2DE74DB2009F8AB7 /* Sporix.xcdatamodeld in Sources */,
 				CEB1DA272DE74DB1009F8AB7 /* ViewController.swift in Sources */,
 				CEB1DA232DE74DB1009F8AB7 /* AppDelegate.swift in Sources */,

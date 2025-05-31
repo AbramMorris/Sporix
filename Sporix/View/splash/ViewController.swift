@@ -35,7 +35,7 @@ class ViewController: UIViewController {
             if finished {
                 print("Start Navigate >>>>>>>>>>>>>>>>>>>>>>>>>>>")
                 //self.navigateToOnBoarding()
-               // self?.navigateToSportsScreen()
+                self?.navigateToSportsScreen()
             }
             
         }
@@ -51,15 +51,15 @@ class ViewController: UIViewController {
         }
     }
 
-//    private func navigateToSportsScreen() {
-//        let storyboard = UIStoryboard(name: "Home", bundle: nil)
-//        if let sportsVC = storyboard.instantiateViewController(withIdentifier: "Home") as? HomeViewController {
-//            sportsVC.modalPresentationStyle = .fullScreen
-//            present(sportsVC, animated: true)
-//        } else {
-//            print("Could not cast to HomeViewController")
-//        }
-//    }
+    private func navigateToSportsScreen() {
+        let storyboard = UIStoryboard(name: "Sports", bundle: nil)
+        if let sportsVC = storyboard.instantiateViewController(withIdentifier: "Home") as? SportsViewController {
+            sportsVC.modalPresentationStyle = .fullScreen
+            present(sportsVC, animated: true)
+        } else {
+            print("Could not cast to HomeViewController")
+        }
+    }
 
 }
 
