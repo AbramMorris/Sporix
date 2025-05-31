@@ -23,6 +23,8 @@
 		CEE2EF132DEB2A9F00C8F15F /* SportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE2EF112DEB286F00C8F15F /* SportsViewController.swift */; };
 		CEE2EF142DEB2AF000C8F15F /* SportsCollectionViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = CEE2EF0F2DEB286F00C8F15F /* SportsCollectionViewCell.xib */; };
 		CEE2EF152DEB2AF000C8F15F /* SportsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE2EF102DEB286F00C8F15F /* SportsCollectionViewCell.swift */; };
+		CEE2EF202DEB8BAE00C8F15F /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEE2EF1F2DEB8BAE00C8F15F /* Onboarding.storyboard */; };
+		CEE2EF222DEB8BE700C8F15F /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE2EF212DEB8BE700C8F15F /* PageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		CEE2EF0F2DEB286F00C8F15F /* SportsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SportsCollectionViewCell.xib; sourceTree = "<group>"; };
 		CEE2EF102DEB286F00C8F15F /* SportsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsCollectionViewCell.swift; sourceTree = "<group>"; };
 		CEE2EF112DEB286F00C8F15F /* SportsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsViewController.swift; sourceTree = "<group>"; };
+		CEE2EF1F2DEB8BAE00C8F15F /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		CEE2EF212DEB8BE700C8F15F /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		F599211CDB90F7BDAA979F50 /* Pods-Sporix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sporix.release.xcconfig"; path = "Target Support Files/Pods-Sporix/Pods-Sporix.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,6 +126,7 @@
 		CE7334772DEA50C800EDABC3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CEE2EF1D2DEB8AC500C8F15F /* onboarding */,
 				CEB1DA302DE74DCB009F8AB7 /* LaunchScreen.storyboard */,
 				CEE2EF0C2DEB286F00C8F15F /* sports */,
 				CE7334782DEA50D500EDABC3 /* splash */,
@@ -215,6 +220,15 @@
 				CEE2EF102DEB286F00C8F15F /* SportsCollectionViewCell.swift */,
 			);
 			path = components;
+			sourceTree = "<group>";
+		};
+		CEE2EF1D2DEB8AC500C8F15F /* onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				CEE2EF1F2DEB8BAE00C8F15F /* Onboarding.storyboard */,
+				CEE2EF212DEB8BE700C8F15F /* PageViewController.swift */,
+			);
+			path = onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,6 +340,7 @@
 				CEE2EF122DEB2A5300C8F15F /* Sports.storyboard in Resources */,
 				CEB1DA322DE74DCB009F8AB7 /* LaunchScreen.storyboard in Resources */,
 				CE73347B2DEA527A00EDABC3 /* lottiesplash.json in Resources */,
+				CEE2EF202DEB8BAE00C8F15F /* Onboarding.storyboard in Resources */,
 				CEB1DA2F2DE74DCB009F8AB7 /* Assets.xcassets in Resources */,
 				CEB1DA2A2DE74DB2009F8AB7 /* Main.storyboard in Resources */,
 			);
@@ -401,6 +416,7 @@
 				CEB1DA272DE74DB1009F8AB7 /* ViewController.swift in Sources */,
 				CEB1DA232DE74DB1009F8AB7 /* AppDelegate.swift in Sources */,
 				CEB1DA252DE74DB1009F8AB7 /* SceneDelegate.swift in Sources */,
+				CEE2EF222DEB8BE700C8F15F /* PageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
