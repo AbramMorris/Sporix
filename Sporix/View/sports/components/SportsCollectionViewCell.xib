@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,7 +17,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="250" height="450"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="124" translatesAutoresizingMaskIntoConstraints="NO" id="dxf-83-3yH">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dxf-83-3yH">
                         <rect key="frame" x="0.0" y="0.0" width="250" height="450"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="250" id="TXr-ls-gfS"/>
@@ -24,23 +25,26 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4c-dr-teZ">
-                        <rect key="frame" x="44" y="366" width="163" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
+                        <rect key="frame" x="0.0" y="390" width="250" height="60"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.48183981788079472" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="0nz-ZK-8xW"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="SnellRoundhand" family="Snell Roundhand" pointSize="35"/>
+                        <color key="textColor" systemColor="systemBackgroundColor"/>
+                        <color key="highlightedColor" systemColor="systemBackgroundColor"/>
                     </label>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="M4c-dr-teZ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="44" id="2rV-av-lWF"/>
+                <constraint firstItem="M4c-dr-teZ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="2rV-av-lWF"/>
                 <constraint firstAttribute="bottom" secondItem="dxf-83-3yH" secondAttribute="bottom" id="3Co-ld-kIF"/>
-                <constraint firstAttribute="trailing" secondItem="M4c-dr-teZ" secondAttribute="trailing" constant="43" id="BTk-Md-vJt"/>
+                <constraint firstAttribute="trailing" secondItem="M4c-dr-teZ" secondAttribute="trailing" id="BTk-Md-vJt"/>
                 <constraint firstItem="dxf-83-3yH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="KYU-oc-oB8"/>
                 <constraint firstAttribute="trailing" secondItem="dxf-83-3yH" secondAttribute="trailing" id="NDc-24-cNO"/>
-                <constraint firstItem="M4c-dr-teZ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="366" id="kPg-bC-cRZ"/>
                 <constraint firstItem="dxf-83-3yH" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="mtW-nh-qkM"/>
-                <constraint firstAttribute="bottom" secondItem="M4c-dr-teZ" secondAttribute="bottom" constant="63" id="zgU-4m-4GR"/>
+                <constraint firstAttribute="bottom" secondItem="M4c-dr-teZ" secondAttribute="bottom" id="zgU-4m-4GR"/>
             </constraints>
             <size key="customSize" width="250" height="450"/>
             <connections>
@@ -51,6 +55,8 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="124" width="2515" height="3500"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

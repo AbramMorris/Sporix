@@ -11,7 +11,7 @@ class SportsViewController: UIViewController {
 
     @IBOutlet weak var homeCollection: UICollectionView!
     
-    let items = ["Item 1", "Item 2", "Item 3", "Item 4"]
+    let items = ["football", "basketball", "cricket", "tennis"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,10 +79,19 @@ extension SportsViewController: UICollectionViewDelegate, UICollectionViewDataSo
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCell", for: indexPath) as? SportsCollectionViewCell else {
             return UICollectionViewCell()
         }
-
+        cell.homeImage.image = UIImage(named: items[indexPath.item])
         cell.titleHome.text = items[indexPath.item]
+        cell.titleHome.textColor = .white
         cell.backgroundColor = .lightGray
         cell.layer.cornerRadius = 15
         return cell
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        var sport: String!
+        sport = items[indexPath.item]
+//        if let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "showMovieDetails") as? ViewController {
+//            homeVC.movie = selectedMovie
+//            self.navigationController?.pushViewController(homeVC, animated: true)
+//        }
+        }
 }
