@@ -34,20 +34,20 @@ class ViewController: UIViewController {
             guard self != nil else { return }
             if finished {
                 print("Start Navigate >>>>>>>>>>>>>>>>>>>>>>>>>>>")
-                //self.navigateToOnBoarding()
-                self?.navigateToSportsScreen()
+                self?.navigateToOnBoardingScreen()
+                //self?.navigateToSportsScreen()
             }
             
         }
     }
 
-    private func navigateToOnBoarding() {
-        let storyboard = UIStoryboard(name: "OnBoarding", bundle: nil)
-        if let onBoardingVC = storyboard.instantiateInitialViewController() {
-            onBoardingVC.modalPresentationStyle = .fullScreen
-            present(onBoardingVC, animated: true)
+    private func navigateToOnBoardingScreen() {
+        let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
+        if let onboardingVC = storyboard.instantiateViewController(withIdentifier: "Onboarding") as? PageViewController {
+            onboardingVC.modalPresentationStyle = .fullScreen
+            present(onboardingVC, animated: true)
         } else {
-            print("Could not instantiate initial from OnBoarding storyboard")
+            print("Could not cast to OnboardingViewController")
         }
     }
 
