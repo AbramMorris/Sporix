@@ -12,15 +12,29 @@
 //
 
 import UIKit
+import Kingfisher
+
 
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var leagueCollectionView: UICollectionView!
+    
+    private var presenter: LeaguesPresenter!
+    private var leagues: [League] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
         setupBackButton()
+        setupPresenter()
+        presenter.fetchLeagues()
+    }
+    
+    private func setupPresenter() {
+        let api = LeagueAPI(
+        apiKey:"093ffc8992aca57429c7bfc95d800ed3f2065a649b8212ab62a3052c646754d4")
+        let repo = LeagueRepository(api: api)
+        presenter = LeaguesPresenter(view: self, repository: repo)
     }
 
     private func setupCollectionView() {
@@ -48,14 +62,28 @@ class HomeViewController: UIViewController {
     }
 }
 
+extension HomeViewController: LeaguesViewProtocol {
+    func showLeagues(_ leagues: [League]) {
+        self.leagues = leagues
+        leagueCollectionView.reloadData()
+    }
+
+    func showError(_ message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
+    }
+}
+
+
 // MARK: - UICollectionViewDataSource & Delegate
 
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // Replace with actual data source count
-        return 10
+        return leagues.count
     }
+    
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -69,8 +97,14 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             return UICollectionViewCell()
         }
 
-        // Configure cell with actual data
-        // cell.configure(with: league)
+        let league = leagues[indexPath.item]
+        cell.leagueTitle.text = league.league_name
+        cell.leagueCountry.text = league.country_name
+        if let logoURLString = league.league_logo, let url = URL(string: logoURLString) {
+            cell.leagueImage.kf.setImage(with: url, placeholder: UIImage(named: "image"))
+        } else {
+            cell.leagueImage.image = UIImage(named: "image")
+        }
 
         return cell
     }
