@@ -86,15 +86,23 @@ extension SportsViewController: UICollectionViewDelegate, UICollectionViewDataSo
         cell.layer.cornerRadius = 15
         return cell
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        var sport: String!
-        sport = items[indexPath.item]
+        let sport = items[indexPath.item]
+        guard let sportType = SportType(rawValue: sport.lowercased()) else {
+                print("Invalid sport type: \(sport)")
+                return
+        }
+        
         let storyboard = UIStoryboard(name: "home", bundle: nil)
-        if let LeagueVC = storyboard.instantiateViewController(withIdentifier: "LeagueVC") as? UINavigationController {
-            LeagueVC.modalPresentationStyle = .fullScreen
-            present(LeagueVC, animated: true)
+        if let nav = storyboard.instantiateViewController(withIdentifier: "LeagueVC") as? UINavigationController,
+           let homeVC = nav.viewControllers.first as? HomeViewController {
+            homeVC.passedFlag = sportType.rawValue
+            nav.modalPresentationStyle = .fullScreen
+            present(nav, animated: true)
         } else {
             print("Could not cast to HomeViewController")
         }
-        }
+    }
+
 }
