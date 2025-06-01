@@ -4,18 +4,14 @@
 //
 //  Created by abram on 31/05/2025.
 //
-//
-//  HomeViewController.swift
-//  Sporix
-//
-//  Created by abram on 31/05/2025.
-//
 
 import UIKit
 import Kingfisher
 
 
 class HomeViewController: UIViewController {
+    
+    var passedFlag: String?
 
     @IBOutlet weak var leagueCollectionView: UICollectionView!
     
@@ -31,11 +27,11 @@ class HomeViewController: UIViewController {
     }
     
     private func setupPresenter() {
-        let api = LeagueAPI(
-        apiKey:"093ffc8992aca57429c7bfc95d800ed3f2065a649b8212ab62a3052c646754d4")
-        let repo = LeagueRepository(api: api)
-        presenter = LeaguesPresenter(view: self, repository: repo)
-    }
+        let sportType = SportType(rawValue: passedFlag ?? "") ?? .football
+        let api = LeagueAPI(sportType: sportType)
+        let repository = LeagueRepository(api: api)
+        presenter = LeaguesPresenter(view: self, repository: repository)
+     }
 
     private func setupCollectionView() {
         let nib = UINib(nibName: "HomeCollectionViewCell", bundle: nil)
@@ -101,9 +97,9 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         cell.leagueTitle.text = league.league_name
         cell.leagueCountry.text = league.country_name
         if let logoURLString = league.league_logo, let url = URL(string: logoURLString) {
-            cell.leagueImage.kf.setImage(with: url, placeholder: UIImage(named: "image"))
+            cell.leagueImage.kf.setImage(with: url, placeholder: UIImage(named: "images"))
         } else {
-            cell.leagueImage.image = UIImage(named: "image")
+            cell.leagueImage.image = UIImage(named: "images")
         }
 
         return cell

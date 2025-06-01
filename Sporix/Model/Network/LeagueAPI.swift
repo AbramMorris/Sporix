@@ -10,20 +10,17 @@ import Alamofire
 
 final class LeagueAPI {
     
-    private let baseURL = "https://apiv2.allsportsapi.com/football/"
-    private let apiKey: String
+    private let sportType: SportType
 
-    init(apiKey: String) {
-        self.apiKey = apiKey
+    init(sportType: SportType) {
+        self.sportType = sportType
     }
-
+    
     func fetchAllLeagues(completion: @escaping (Result<[League], Error>) -> Void) {
-        let parameters: [String: Any] = [
-            "met": "Leagues",
-            "APIkey": apiKey
-        ]
-
-        NetworkService.shared.getRequest(url: baseURL, parameters: parameters) { (result: Result<LeaguesResponse, AFError>) in
+        let url = sportType.baseURL
+        let parameters = Constants.API.parameters(for: .leagues)
+        
+        NetworkService.shared.getRequest(url: url, parameters: parameters) { (result: Result<LeaguesResponse, AFError>) in
             switch result {
             case .success(let response):
                 if response.success == 1 {
