@@ -103,7 +103,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
 
     private func goToMainApp() {
         let storyboard = UIStoryboard(name: "Sports", bundle: nil)
-        if let sportsVC = storyboard.instantiateViewController(withIdentifier: "Home") as? SportsViewController {
+        if let sportsVC = storyboard.instantiateViewController(withIdentifier: "tab") as? UITabBarController {
             sportsVC.modalPresentationStyle = .fullScreen
             present(sportsVC, animated: true)
         } else {

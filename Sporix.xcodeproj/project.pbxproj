@@ -71,6 +71,10 @@
 		F599211CDB90F7BDAA979F50 /* Pods-Sporix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sporix.release.xcconfig"; path = "Target Support Files/Pods-Sporix/Pods-Sporix.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		A456A5632DEC818100C89097 /* home */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = home; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		CEB1DA1C2DE74DB1009F8AB7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -126,6 +130,7 @@
 		CE7334772DEA50C800EDABC3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A456A5632DEC818100C89097 /* home */,
 				CEE2EF1D2DEB8AC500C8F15F /* onboarding */,
 				CEB1DA302DE74DCB009F8AB7 /* LaunchScreen.storyboard */,
 				CEE2EF0C2DEB286F00C8F15F /* sports */,
@@ -247,6 +252,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				A456A5632DEC818100C89097 /* home */,
 			);
 			name = Sporix;
 			productName = Sporix;
@@ -371,9 +379,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Sporix/Pods-Sporix-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Sporix/Pods-Sporix-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
