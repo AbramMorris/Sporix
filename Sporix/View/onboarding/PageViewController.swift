@@ -45,14 +45,23 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
 
     private func configure(page: UIViewController, at index: Int) {
         if let imageView = page.view.viewWithTag(1) as? UIImageView {
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                imageView.topAnchor.constraint(equalTo: page.view.topAnchor),
+                imageView.bottomAnchor.constraint(equalTo: page.view.bottomAnchor),
+                imageView.leadingAnchor.constraint(equalTo: page.view.leadingAnchor),
+                imageView.trailingAnchor.constraint(equalTo: page.view.trailingAnchor)
+            ])
             imageView.image = UIImage(named: pageData[index].image)
             imageView.contentMode = .scaleAspectFill
+            imageView.clipsToBounds = true
         }
+
+
         if let label = page.view.viewWithTag(2) as? UILabel {
             label.text = pageData[index].description
-            label.textAlignment = .center
-            label.numberOfLines = 0
         }
+        
         if let button = page.view.viewWithTag(3) as? UIButton {
             let isLastPage = index == pageData.count - 1
             button.setTitle(isLastPage ? "Start" : "Next", for: .normal)
