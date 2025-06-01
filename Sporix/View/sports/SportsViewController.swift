@@ -36,7 +36,7 @@ class SportsViewController: UIViewController {
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
 
             let groupSize = NSCollectionLayoutSize(
-                widthDimension: .absolute(380),
+                widthDimension: .absolute(350),
                 heightDimension: .fractionalHeight(1.0)
             )
             let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
@@ -89,9 +89,12 @@ extension SportsViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         var sport: String!
         sport = items[indexPath.item]
-//        if let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "showMovieDetails") as? ViewController {
-//            homeVC.movie = selectedMovie
-//            self.navigationController?.pushViewController(homeVC, animated: true)
-//        }
+        let storyboard = UIStoryboard(name: "home", bundle: nil)
+        if let LeagueVC = storyboard.instantiateViewController(withIdentifier: "LeagueVC") as? UINavigationController {
+            LeagueVC.modalPresentationStyle = .fullScreen
+            present(LeagueVC, animated: true)
+        } else {
+            print("Could not cast to HomeViewController")
+        }
         }
 }

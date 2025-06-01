@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		6E56A4581622B1FB019E1DEA /* Pods_Sporix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8898356406F09C2DAC56356 /* Pods_Sporix.framework */; };
+		A456A5822DEC8DF200C89097 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456A57C2DEC8DF200C89097 /* HomeCollectionViewCell.swift */; };
+		A456A5832DEC8DF200C89097 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456A5802DEC8DF200C89097 /* HomeViewController.swift */; };
+		A456A5842DEC8DF200C89097 /* home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A456A57F2DEC8DF200C89097 /* home.storyboard */; };
+		A456A5852DEC8DF200C89097 /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A456A57D2DEC8DF200C89097 /* HomeCollectionViewCell.xib */; };
 		CE73347B2DEA527A00EDABC3 /* lottiesplash.json in Resources */ = {isa = PBXBuildFile; fileRef = CE73347A2DEA527A00EDABC3 /* lottiesplash.json */; };
 		CEB1DA232DE74DB1009F8AB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1DA222DE74DB1009F8AB7 /* AppDelegate.swift */; };
 		CEB1DA252DE74DB1009F8AB7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1DA242DE74DB1009F8AB7 /* SceneDelegate.swift */; };
@@ -46,6 +50,10 @@
 
 /* Begin PBXFileReference section */
 		5CFEC687D789ED68C98F5AA1 /* Pods-Sporix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sporix.debug.xcconfig"; path = "Target Support Files/Pods-Sporix/Pods-Sporix.debug.xcconfig"; sourceTree = "<group>"; };
+		A456A57C2DEC8DF200C89097 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		A456A57D2DEC8DF200C89097 /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
+		A456A57F2DEC8DF200C89097 /* home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = home.storyboard; sourceTree = "<group>"; };
+		A456A5802DEC8DF200C89097 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A8898356406F09C2DAC56356 /* Pods_Sporix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sporix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE73347A2DEA527A00EDABC3 /* lottiesplash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottiesplash.json; sourceTree = "<group>"; };
 		CEB1DA1F2DE74DB1009F8AB7 /* Sporix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sporix.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +122,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A456A57E2DEC8DF200C89097 /* homeComponents */ = {
+			isa = PBXGroup;
+			children = (
+				A456A57C2DEC8DF200C89097 /* HomeCollectionViewCell.swift */,
+				A456A57D2DEC8DF200C89097 /* HomeCollectionViewCell.xib */,
+			);
+			path = homeComponents;
+			sourceTree = "<group>";
+		};
+		A456A5812DEC8DF200C89097 /* League */ = {
+			isa = PBXGroup;
+			children = (
+				A456A57E2DEC8DF200C89097 /* homeComponents */,
+				A456A57F2DEC8DF200C89097 /* home.storyboard */,
+				A456A5802DEC8DF200C89097 /* HomeViewController.swift */,
+			);
+			path = League;
+			sourceTree = "<group>";
+		};
 		CE7334762DEA50AE00EDABC3 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +153,7 @@
 		CE7334772DEA50C800EDABC3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A456A5812DEC8DF200C89097 /* League */,
 				CEE2EF1D2DEB8AC500C8F15F /* onboarding */,
 				CEB1DA302DE74DCB009F8AB7 /* LaunchScreen.storyboard */,
 				CEE2EF0C2DEB286F00C8F15F /* sports */,
@@ -339,6 +367,8 @@
 			files = (
 				CEE2EF122DEB2A5300C8F15F /* Sports.storyboard in Resources */,
 				CEB1DA322DE74DCB009F8AB7 /* LaunchScreen.storyboard in Resources */,
+				A456A5842DEC8DF200C89097 /* home.storyboard in Resources */,
+				A456A5852DEC8DF200C89097 /* HomeCollectionViewCell.xib in Resources */,
 				CE73347B2DEA527A00EDABC3 /* lottiesplash.json in Resources */,
 				CEE2EF202DEB8BAE00C8F15F /* Onboarding.storyboard in Resources */,
 				CEB1DA2F2DE74DCB009F8AB7 /* Assets.xcassets in Resources */,
@@ -371,9 +401,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Sporix/Pods-Sporix-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Sporix/Pods-Sporix-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -417,6 +451,8 @@
 				CEB1DA232DE74DB1009F8AB7 /* AppDelegate.swift in Sources */,
 				CEB1DA252DE74DB1009F8AB7 /* SceneDelegate.swift in Sources */,
 				CEE2EF222DEB8BE700C8F15F /* PageViewController.swift in Sources */,
+				A456A5822DEC8DF200C89097 /* HomeCollectionViewCell.swift in Sources */,
+				A456A5832DEC8DF200C89097 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
