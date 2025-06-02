@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,42 +22,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JXw-0K-b3A">
-                                <rect key="frame" x="0.0" y="128" width="393" height="656"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QP8-RE-9MH">
-                                    <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="feW-qd-sNy">
-                                        <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="qHD-cJ-aRz">
-                                            <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="S3Q-Cc-bJu">
+                                <rect key="frame" x="0.0" y="129" width="393" height="655"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="JXw-0K-b3A" secondAttribute="bottom" id="Nhr-H6-vi9"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="S3Q-Cc-bJu" secondAttribute="bottom" id="5RQ-vZ-D5h"/>
+                            <constraint firstItem="S3Q-Cc-bJu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="KcM-o6-Kmb"/>
                             <constraint firstAttribute="trailing" secondItem="qWx-Pe-6Mv" secondAttribute="trailing" constant="149" id="OYk-O9-WDq"/>
                             <constraint firstItem="qWx-Pe-6Mv" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="60" id="VWP-3c-p8v"/>
-                            <constraint firstItem="JXw-0K-b3A" firstAttribute="top" secondItem="qWx-Pe-6Mv" secondAttribute="bottom" constant="30" id="VcA-Wl-hCO"/>
                             <constraint firstItem="qWx-Pe-6Mv" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="149" id="asx-Hc-e3B"/>
-                            <constraint firstItem="JXw-0K-b3A" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="dwz-VP-Yfz"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="JXw-0K-b3A" secondAttribute="trailing" id="rAh-cX-Ug9"/>
+                            <constraint firstItem="S3Q-Cc-bJu" firstAttribute="top" secondItem="qWx-Pe-6Mv" secondAttribute="bottom" constant="31" id="fDC-TC-kGw"/>
+                            <constraint firstItem="S3Q-Cc-bJu" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="yqF-uD-cSa"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="WID-4c-Z4m"/>
                     <connections>
-                        <outlet property="leagueCollectionView" destination="JXw-0K-b3A" id="qD1-4z-cr3"/>
+                        <outlet property="leagueTableView" destination="S3Q-Cc-bJu" id="Y9V-vn-Bfg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
