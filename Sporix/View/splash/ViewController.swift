@@ -34,10 +34,22 @@ class ViewController: UIViewController {
             guard self != nil else { return }
             if finished {
                 print("Start Navigate >>>>>>>>>>>>>>>>>>>>>>>>>>>")
-                self?.navigateToOnBoardingScreen()
+                self?.navigateToFavScreen()
+                
+                //self?.navigateToOnBoardingScreen()
                 //self?.navigateToSportsScreen()
             }
             
+        }
+    }
+       
+    private func navigateToFavScreen(){
+        let storyboard = UIStoryboard(name: "Fav", bundle: nil)
+        if let favVC = storyboard.instantiateViewController(withIdentifier: "FavScreen") as? FavViewController {
+            favVC.modalPresentationStyle = .fullScreen
+            present(favVC, animated: true)
+        } else {
+            print("Could not cast to FavViewController")
         }
     }
 
