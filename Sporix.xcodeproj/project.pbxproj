@@ -10,10 +10,9 @@
 		6E56A4581622B1FB019E1DEA /* Pods_Sporix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8898356406F09C2DAC56356 /* Pods_Sporix.framework */; };
 		A456A5832DEC8DF200C89097 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456A5802DEC8DF200C89097 /* HomeViewController.swift */; };
 		A456A5842DEC8DF200C89097 /* home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A456A57F2DEC8DF200C89097 /* home.storyboard */; };
-		A456A5852DEC8DF200C89097 /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A456A57D2DEC8DF200C89097 /* HomeCollectionViewCell.xib */; };
-		CE3D7F602DEDB3880003C7FF /* Fav.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3D7F5F2DEDB3880003C7FF /* Fav.swift */; };
 		A481D9A42DEDB3D50056FA71 /* LeagueTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A481D9A32DEDB3D50056FA71 /* LeagueTableViewCell.xib */; };
 		A481D9A52DEDB3D50056FA71 /* LeagueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A481D9A22DEDB3D50056FA71 /* LeagueTableViewCell.swift */; };
+		CE3D7F602DEDB3880003C7FF /* Fav.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3D7F5F2DEDB3880003C7FF /* Fav.swift */; };
 		CE73347B2DEA527A00EDABC3 /* lottiesplash.json in Resources */ = {isa = PBXBuildFile; fileRef = CE73347A2DEA527A00EDABC3 /* lottiesplash.json */; };
 		CE7FCF422DEC9659002190D2 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FCF412DEC9659002190D2 /* NetworkService.swift */; };
 		CE7FCF442DEC96B1002190D2 /* LeagueAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FCF432DEC96B1002190D2 /* LeagueAPI.swift */; };
@@ -35,7 +34,6 @@
 		CEC8EE532DED2BA200D162BD /* FavTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC8EE512DED2BA200D162BD /* FavTableViewCell.swift */; };
 		CEC8EE542DED2BA200D162BD /* FavTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC8EE522DED2BA200D162BD /* FavTableViewCell.xib */; };
 		CEDD4FAA2DED06CC003625A7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDD4FA92DED06CC003625A7 /* Constants.swift */; };
-		CEDD4FB02DED2382003625A7 /* Fav.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEDD4FAF2DED2382003625A7 /* Fav.storyboard */; };
 		CEDD4FB52DED2551003625A7 /* FavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDD4FB42DED2551003625A7 /* FavViewController.swift */; };
 		CEE2EF122DEB2A5300C8F15F /* Sports.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEE2EF0D2DEB286F00C8F15F /* Sports.storyboard */; };
 		CEE2EF132DEB2A9F00C8F15F /* SportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE2EF112DEB286F00C8F15F /* SportsViewController.swift */; };
@@ -95,7 +93,6 @@
 		CEC8EE512DED2BA200D162BD /* FavTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavTableViewCell.swift; sourceTree = "<group>"; };
 		CEC8EE522DED2BA200D162BD /* FavTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavTableViewCell.xib; sourceTree = "<group>"; };
 		CEDD4FA92DED06CC003625A7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		CEDD4FAF2DED2382003625A7 /* Fav.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Fav.storyboard; sourceTree = "<group>"; };
 		CEDD4FB42DED2551003625A7 /* FavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavViewController.swift; sourceTree = "<group>"; };
 		CEE2EF0D2DEB286F00C8F15F /* Sports.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sports.storyboard; sourceTree = "<group>"; };
 		CEE2EF0F2DEB286F00C8F15F /* SportsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SportsCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -337,7 +334,6 @@
 			isa = PBXGroup;
 			children = (
 				CEC8EE502DED280700D162BD /* components */,
-				CEDD4FAF2DED2382003625A7 /* Fav.storyboard */,
 				CEDD4FB42DED2551003625A7 /* FavViewController.swift */,
 			);
 			path = Fav;
@@ -484,7 +480,6 @@
 				CEE2EF202DEB8BAE00C8F15F /* Onboarding.storyboard in Resources */,
 				CEB1DA2F2DE74DCB009F8AB7 /* Assets.xcassets in Resources */,
 				CEC8EE542DED2BA200D162BD /* FavTableViewCell.xib in Resources */,
-				CEDD4FB02DED2382003625A7 /* Fav.storyboard in Resources */,
 				CEB1DA2A2DE74DB2009F8AB7 /* Main.storyboard in Resources */,
 				A481D9A42DEDB3D50056FA71 /* LeagueTableViewCell.xib in Resources */,
 			);
