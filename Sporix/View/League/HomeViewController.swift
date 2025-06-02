@@ -8,19 +8,18 @@
 import UIKit
 import Kingfisher
 
-
 class HomeViewController: UIViewController {
     
     var passedFlag: String?
 
-    @IBOutlet weak var leagueCollectionView: UICollectionView!
+    @IBOutlet weak var leagueTableView: UITableView!
     
     private var presenter: LeaguesPresenter!
     private var leagues: [League] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupCollectionView()
+        setupTableView()
         setupBackButton()
         setupPresenter()
         presenter.fetchLeagues()
@@ -31,14 +30,15 @@ class HomeViewController: UIViewController {
         let api = LeagueAPI(sportType: sportType)
         let repository = LeagueRepository(api: api)
         presenter = LeaguesPresenter(view: self, repository: repository)
-     }
+    }
 
-    private func setupCollectionView() {
-        let nib = UINib(nibName: "HomeCollectionViewCell", bundle: nil)
-        leagueCollectionView.register(nib, forCellWithReuseIdentifier: "leagueCell")
+    private func setupTableView() {
+        let nib = UINib(nibName: "LeagueTableViewCell", bundle: nil)
+        leagueTableView.register(nib, forCellReuseIdentifier: "leagueCell")
         
-        leagueCollectionView.delegate = self
-        leagueCollectionView.dataSource = self
+        leagueTableView.delegate = self
+        leagueTableView.dataSource = self
+        leagueTableView.rowHeight = 150
     }
     
     private func setupBackButton() {
@@ -47,13 +47,12 @@ class HomeViewController: UIViewController {
     }
 
     @objc private func backButtonTapped() {
-//        navigationController?.popViewController(animated: true)
         let storyboard = UIStoryboard(name: "Sports", bundle: nil)
         if let sportsVC = storyboard.instantiateViewController(withIdentifier: "tab") as? UITabBarController {
             sportsVC.modalPresentationStyle = .fullScreen
             present(sportsVC, animated: false)
         } else {
-            print("Could not cast to HomeViewController")
+            print("Could not cast to UITabBarController")
         }
     }
 }
@@ -61,7 +60,7 @@ class HomeViewController: UIViewController {
 extension HomeViewController: LeaguesViewProtocol {
     func showLeagues(_ leagues: [League]) {
         self.leagues = leagues
-        leagueCollectionView.reloadData()
+        leagueTableView.reloadData()
     }
 
     func showError(_ message: String) {
@@ -71,29 +70,21 @@ extension HomeViewController: LeaguesViewProtocol {
     }
 }
 
+// MARK: - UITableViewDataSource & Delegate
 
-// MARK: - UICollectionViewDataSource & Delegate
+extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 
-extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return leagues.count
     }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        return CGSize(width: collectionView.bounds.width, height: 150
-        )
-    }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "leagueCell", for: indexPath) as? HomeCollectionViewCell else {
-            return UICollectionViewCell()
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "leagueCell", for: indexPath) as? LeagueTableViewCell else {
+            return UITableViewCell()
         }
 
-        let league = leagues[indexPath.item]
+        let league = leagues[indexPath.row]
         cell.leagueTitle.text = league.league_name
         cell.leagueCountry.text = league.country_name
         if let logoURLString = league.league_logo, let url = URL(string: logoURLString) {
@@ -103,5 +94,10 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         }
 
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        // You can add navigation logic here if needed
     }
 }
