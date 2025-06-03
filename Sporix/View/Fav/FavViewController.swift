@@ -7,15 +7,13 @@
 
 import UIKit
 
-class FavViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+class FavViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FavoritesViewProtocol   {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
-    var favItems: [Fav] = [
-         Fav(id: 1, name: "Premier League", image: "https://upload.wikimedia.org/wikipedia/en/f/f2/Premier_League_Logo.svg"),
-         Fav(id: 2, name: "La Liga", image: "https://upload.wikimedia.org/wikipedia/en/7/79/LaLiga_Santander.svg"),
-         Fav(id: 3, name: "Serie A", image: "https://upload.wikimedia.org/wikipedia/en/e/e1/Serie_A_logo_%282019%29.svg")
-     ]
-    
+    var favItems: [Fav] = []
+    var presenter: FavoritesPresenter!
+
+ 
     @IBOutlet weak var favTableView: UITableView!
     
     override func viewDidLoad() {
@@ -27,6 +25,25 @@ class FavViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         let nib = UINib(nibName: "FavTableViewCell", bundle: nil)
         favTableView.register(nib, forCellReuseIdentifier: "cell")
+        
+        presenter = FavoritesPresenter(view: self)
+        presenter.loadFavorites()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+
+    
+    func showFavorites(_ favorites: [Fav]) {
+        self.favItems = favorites
+        self.favTableView.reloadData()
+     }
+     
+    func showError(_ message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -43,9 +60,9 @@ class FavViewController: UIViewController, UITableViewDelegate, UITableViewDataS
               }
 
         let item = favItems[indexPath.row]
-        cell.titleLabel.text = item.name
+        cell.titleLabel.text = item.LeagueName
         
-        if let url = URL(string: item.image ?? "") {
+        if let url = URL(string: item.LeagueImage ?? "") {
             cell.imageViewCell.kf.setImage(with: url, placeholder: UIImage(named: "images"))
         } else {
             cell.imageViewCell.image = UIImage(named: "images")
@@ -57,9 +74,9 @@ class FavViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let fav = favItems[indexPath.row]
-        print("Item name >> \(fav.name)")
+        print("Item name >> \(fav.LeagueName)")
 
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let storyboard = UIStoryboard(name: "Details", bundle: nil)
 //        if let detailsVC = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController {
 //            detailsVC.fav = fav
 //            navigationController?.pushViewController(detailsVC, animated: true)

@@ -8,6 +8,7 @@
 import Foundation
 
 final class LeaguesPresenter {
+    
     private weak var view: LeaguesViewProtocol?
     private let repository: LeagueRepository
 
@@ -28,4 +29,6 @@ final class LeaguesPresenter {
             }
         }
     }
+    
+    
 }
