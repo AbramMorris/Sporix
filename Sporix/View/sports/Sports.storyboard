@@ -83,6 +83,9 @@
                                     <segment title="Cricket"/>
                                     <segment title="Tennis"/>
                                 </segments>
+                                <connections>
+                                    <action selector="filterSegment:" destination="0Wg-6q-VfZ" eventType="valueChanged" id="fev-2x-mOE"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pZe-30-tBK"/>
@@ -103,6 +106,7 @@
                     <tabBarItem key="tabBarItem" title="Fav" image="heart.fill" catalog="system" id="LEQ-sK-FVQ"/>
                     <connections>
                         <outlet property="favTableView" destination="TdM-xc-KN3" id="1pQ-Q9-tL2"/>
+                        <outlet property="segmentedControl" destination="W4A-td-BR1" id="jao-Rn-Jy4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oxo-Ob-sLH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

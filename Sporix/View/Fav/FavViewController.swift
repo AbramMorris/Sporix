@@ -8,6 +8,7 @@
 import UIKit
 
 class FavViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FavoritesViewProtocol   {
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     var favItems: [Fav] = []
     var presenter: FavoritesPresenter!
@@ -19,6 +20,7 @@ class FavViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         super.viewDidLoad()
         favTableView.delegate = self
         favTableView.dataSource = self
+        segmentedControl.selectedSegmentIndex = 0
         favTableView.separatorStyle = .none
         
         let nib = UINib(nibName: "FavTableViewCell", bundle: nil)
@@ -80,6 +82,24 @@ class FavViewController: UIViewController, UITableViewDelegate, UITableViewDataS
 //            navigationController?.pushViewController(detailsVC, animated: true)
 //        }
     }
-    
+
+    @IBAction func filterSegment(_ sender: Any) {
+        switch (sender as AnyObject).selectedSegmentIndex {
+            case 1:
+            print("f")
+            case 2:
+            print("b")
+            case 3:
+            print("c")
+            case 4:
+            print("t")
+            case 0:
+            print("all")
+        default:
+            print("all")
+            break
+     
+           }
+    }
     
 }

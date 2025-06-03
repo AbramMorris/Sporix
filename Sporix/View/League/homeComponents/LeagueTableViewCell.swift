@@ -27,5 +27,9 @@ class LeagueTableViewCell: UITableViewCell {
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10))
     }
     
-    @IBOutlet weak var favButton: UIImageView!
+
+    @IBAction func addFav(_ sender: Any) {
+        print("addFavorite")
+    }
+    
 }
