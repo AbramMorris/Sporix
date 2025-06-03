@@ -39,10 +39,13 @@ class LeagueDetailsViewController: UIViewController {
         let fixtureNib = UINib(nibName: "FixtureCollectionViewCell", bundle: nil)
                recentCollection.register(fixtureNib, forCellWithReuseIdentifier: "RecentCell")
                upComingCollection.register(fixtureNib, forCellWithReuseIdentifier: "RecentCell")
-        teamsCollection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "TeamCell")
+        let teamNib = UINib(nibName: "TeamsCollectionViewCell", bundle: nil)
+        teamsCollection.register(teamNib, forCellWithReuseIdentifier: "TeamCell")
+
 
         fixturesPresenter = FixturesPresenter(view: self, repository: FixtureRepository(api: FixtureAPI(sportType: sportType)))
         teamsPresenter = TeamsPresenter(view: self, repository: TeamRepository(api: TeamAPI(sportType: sportType)))
+        teamsPresenter.fetchTeams(leagueId: leagueId ?? 1 )
 
         setupCollections()
         displayBasicInfo()
@@ -143,12 +146,23 @@ extension LeagueDetailsViewController: UICollectionViewDataSource, UICollectionV
             return cell
 
         } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TeamCell", for: indexPath)
-            if let label = cell.contentView.viewWithTag(102) as? UILabel {
-                label.text = teams[indexPath.row].teamName
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TeamCell", for: indexPath) as! TeamsCollectionViewCell
+            let team = teams[indexPath.row]
+            cell.teamName.text = team.teamName
+            cell.teamImage.image = nil
+            if let logoUrlStr = team.teamLogo, let url = URL(string: logoUrlStr) {
+                URLSession.shared.dataTask(with: url) { data, _, _ in
+                    if let data = data {
+                        DispatchQueue.main.async {
+                            cell.teamImage.image = UIImage(data: data)
+                        }
+                    }
+                }.resume()
             }
+
             return cell
         }
+
     }
 
     private func loadImage(urlStr: String?, into imageView: UIImageView) {
