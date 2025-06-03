@@ -90,18 +90,24 @@ extension SportsViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let sport = items[indexPath.item]
         guard let sportType = SportType(rawValue: sport.lowercased()) else {
-                print("Invalid sport type: \(sport)")
-                return
+            print("Invalid sport type: \(sport)")
+            return
         }
         
-        let storyboard = UIStoryboard(name: "home", bundle: nil)
-        if let nav = storyboard.instantiateViewController(withIdentifier: "LeagueVC") as? UINavigationController,
-           let homeVC = nav.viewControllers.first as? HomeViewController {
-            homeVC.passedFlag = sportType.rawValue
-            nav.modalPresentationStyle = .fullScreen
-            present(nav, animated: true)
+        if NetworkHelper.shared.isNetworkAvailable() {
+            let storyboard = UIStoryboard(name: "home", bundle: nil)
+            if let nav = storyboard.instantiateViewController(withIdentifier: "LeagueVC") as? UINavigationController,
+               let homeVC = nav.viewControllers.first as? HomeViewController {
+                homeVC.passedFlag = sportType.rawValue
+                nav.modalPresentationStyle = .fullScreen
+                present(nav, animated: true)
+            } else {
+                print("Could not cast to HomeViewController")
+            }
         } else {
-            print("Could not cast to HomeViewController")
+            let alert = UIAlertController(title: "No Internet", message: "Please check your internet connection.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
 

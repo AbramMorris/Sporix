@@ -70,12 +70,19 @@ class FavViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         let fav = favItems[indexPath.row]
         print("Item name >> \(fav.LeagueName)")
 
-//        let storyboard = UIStoryboard(name: "Details", bundle: nil)
-//        if let detailsVC = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController {
-//            detailsVC.fav = fav
-//            navigationController?.pushViewController(detailsVC, animated: true)
-//        }
+        if NetworkHelper.shared.isNetworkAvailable() {
+//            let storyboard = UIStoryboard(name: "Details", bundle: nil)
+//            if let detailsVC = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController {
+//                detailsVC.fav = fav
+//                navigationController?.pushViewController(detailsVC, animated: true)
+//            }
+        } else {
+            let alert = UIAlertController(title: "No Internet", message: "Please check your internet connection.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
+
 
     @IBAction func filterSegment(_ sender: Any) {
         applyFilter()
