@@ -7,8 +7,9 @@
 
 import Foundation
 
-struct Fav: Decodable {
+struct Fav: Codable {
     let id: Int
-    let name: String
-    let image: String?
+    let LeagueName: String
+    let LeagueImage: String?
+    let sportType: String
 }
