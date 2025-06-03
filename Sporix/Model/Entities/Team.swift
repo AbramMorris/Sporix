@@ -11,7 +11,14 @@ struct Team: Decodable {
     let teamKey: Int
     let teamName: String
     let teamLogo: String?
+
+    private enum CodingKeys: String, CodingKey {
+        case teamKey = "team_key"
+        case teamName = "team_name"
+        case teamLogo = "team_logo"
+    }
 }
+
 
 struct TeamsResponse: Decodable {
     let success: Int
