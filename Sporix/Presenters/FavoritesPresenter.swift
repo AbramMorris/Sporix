@@ -22,10 +22,10 @@ final class FavoritesPresenter {
         view?.showFavorites(favs)
     }
 
-    func addFavorite(_ fav: Fav) {
-        repository.addFavorite(fav)
-        loadFavorites()
-    }
+//    func addFavorite(_ fav: Fav) {
+//        repository.addFavorite(fav)
+//        //loadFavorites()
+//    }
 
     func deleteFavorite(by id: Int) {
         repository.deleteFavorite(id: id)

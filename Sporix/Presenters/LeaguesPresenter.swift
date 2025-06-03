@@ -10,15 +10,17 @@ import Foundation
 final class LeaguesPresenter {
     
     private weak var view: LeaguesViewProtocol?
-    private let repository: LeagueRepository
+    private let leagueRepository: LeagueRepository
+    private let favRepository: FavRepository
 
-    init(view: LeaguesViewProtocol, repository: LeagueRepository) {
+    init(view: LeaguesViewProtocol, leagueRepository : LeagueRepository, favRepository : FavRepository) {
         self.view = view
-        self.repository = repository
+        self.leagueRepository = leagueRepository
+        self.favRepository = favRepository
     }
 
     func fetchLeagues() {
-        repository.getAllLeagues { [weak self] result in
+        leagueRepository.getAllLeagues { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let leagues):
@@ -30,5 +32,17 @@ final class LeaguesPresenter {
         }
     }
     
+    func addLeagueToFavorites(_ league: League,_ sport: String) {
+           let fav = LeagueFavMapper.mapToFav(from: league, sportType: sport)
+           favRepository.addFavorite(fav)
+       }
+
+       func removeLeagueFromFavorites(_ league: League) {
+           favRepository.deleteFavorite(id: league.league_key)
+       }
+
+       func isFavorite(_ leagueId: Int) -> Bool {
+           return favRepository.isFavExist(id: leagueId)
+       }
     
 }

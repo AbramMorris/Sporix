@@ -49,6 +49,8 @@
 		CEB1DA3D2DE74DCD009F8AB7 /* SporixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1DA3C2DE74DCD009F8AB7 /* SporixTests.swift */; };
 		CEB1DA472DE74DCD009F8AB7 /* SporixUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1DA462DE74DCD009F8AB7 /* SporixUITests.swift */; };
 		CEB1DA492DE74DCD009F8AB7 /* SporixUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1DA482DE74DCD009F8AB7 /* SporixUITestsLaunchTests.swift */; };
+		CEC68FF32DEF2924001D6972 /* FavoriteDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC68FF22DEF2924001D6972 /* FavoriteDelegate.swift */; };
+		CEC68FF62DEF391A001D6972 /* LeagueFavMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC68FF52DEF391A001D6972 /* LeagueFavMapper.swift */; };
 		CEC8EE532DED2BA200D162BD /* FavTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC8EE512DED2BA200D162BD /* FavTableViewCell.swift */; };
 		CEC8EE542DED2BA200D162BD /* FavTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC8EE522DED2BA200D162BD /* FavTableViewCell.xib */; };
 		CEDD4FAA2DED06CC003625A7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDD4FA92DED06CC003625A7 /* Constants.swift */; };
@@ -126,6 +128,8 @@
 		CEB1DA422DE74DCD009F8AB7 /* SporixUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SporixUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB1DA462DE74DCD009F8AB7 /* SporixUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SporixUITests.swift; sourceTree = "<group>"; };
 		CEB1DA482DE74DCD009F8AB7 /* SporixUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SporixUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CEC68FF22DEF2924001D6972 /* FavoriteDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteDelegate.swift; sourceTree = "<group>"; };
+		CEC68FF52DEF391A001D6972 /* LeagueFavMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueFavMapper.swift; sourceTree = "<group>"; };
 		CEC8EE512DED2BA200D162BD /* FavTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavTableViewCell.swift; sourceTree = "<group>"; };
 		CEC8EE522DED2BA200D162BD /* FavTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavTableViewCell.xib; sourceTree = "<group>"; };
 		CEDD4FA92DED06CC003625A7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -244,7 +248,6 @@
 				CEDD4FAB2DED231C003625A7 /* Fav */,
 				A456A5812DEC8DF200C89097 /* League */,
 				CEE2EF1D2DEB8AC500C8F15F /* onboarding */,
-				CEB1DA302DE74DCB009F8AB7 /* LaunchScreen.storyboard */,
 				CEE2EF0C2DEB286F00C8F15F /* sports */,
 				CE7334782DEA50D500EDABC3 /* splash */,
 			);
@@ -272,6 +275,7 @@
 		CE7FCF3F2DEC956F002190D2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CEC68FF42DEF3904001D6972 /* Mapper */,
 				CE3D7F672DEE914F0003C7FF /* Local */,
 				CE7FCF4A2DEC98AE002190D2 /* Repositories */,
 				CE7FCF452DEC9764002190D2 /* Entities */,
@@ -333,6 +337,7 @@
 				CEAFA0A82DEE9C4D00C24AF1 /* FavoritesViewProtocol.swift */,
 				A439838B2DEE049A002D25BD /* FixturesViewProtocol.swift */,
 				A43983902DEE04E5002D25BD /* TeamsViewProtocol.swift */,
+				CEC68FF22DEF2924001D6972 /* FavoriteDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -367,6 +372,7 @@
 				CE7FCF3F2DEC956F002190D2 /* Model */,
 				CE7334792DEA523200EDABC3 /* Resources */,
 				CE7334772DEA50C800EDABC3 /* View */,
+				CEB1DA302DE74DCB009F8AB7 /* LaunchScreen.storyboard */,
 				CE7334762DEA50AE00EDABC3 /* App */,
 				CEB1DA332DE74DCB009F8AB7 /* Info.plist */,
 				CEAFA0A52DEE9A6400C24AF1 /* Sporix.xcdatamodeld */,
@@ -389,6 +395,14 @@
 				CEB1DA482DE74DCD009F8AB7 /* SporixUITestsLaunchTests.swift */,
 			);
 			path = SporixUITests;
+			sourceTree = "<group>";
+		};
+		CEC68FF42DEF3904001D6972 /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				CEC68FF52DEF391A001D6972 /* LeagueFavMapper.swift */,
+			);
+			path = Mapper;
 			sourceTree = "<group>";
 		};
 		CEC8EE502DED280700D162BD /* components */ = {
@@ -635,7 +649,9 @@
 				CEAFA0AD2DEE9D0800C24AF1 /* FavRepository.swift in Sources */,
 				CE7FCF4C2DEC9928002190D2 /* LeagueRepository.swift in Sources */,
 				CEDD4FB52DED2551003625A7 /* FavViewController.swift in Sources */,
+				CEC68FF62DEF391A001D6972 /* LeagueFavMapper.swift in Sources */,
 				A481D9A52DEDB3D50056FA71 /* LeagueTableViewCell.swift in Sources */,
+				CEC68FF32DEF2924001D6972 /* FavoriteDelegate.swift in Sources */,
 				CEAFA0A92DEE9C4D00C24AF1 /* FavoritesViewProtocol.swift in Sources */,
 				CE7FCF422DEC9659002190D2 /* NetworkService.swift in Sources */,
 				CEE2EF142DEB2AF000C8F15F /* SportsCollectionViewCell.xib in Sources */,
@@ -652,7 +668,6 @@
 				CE3D7F602DEDB3880003C7FF /* Fav.swift in Sources */,
 				CE7FCF4F2DEC99B8002190D2 /* LeaguesPresenter.swift in Sources */,
 				A43983962DEE06C8002D25BD /* FixtureCollectionViewCell.swift in Sources */,
-				CEB1DA2D2DE74DB2009F8AB7 /* Sporix.xcdatamodeld in Sources */,
 				A439837E2DEE030B002D25BD /* Team.swift in Sources */,
 				CEC8EE532DED2BA200D162BD /* FavTableViewCell.swift in Sources */,
 				CE3D7F6B2DEE97030003C7FF /* DatabaseManager.swift in Sources */,

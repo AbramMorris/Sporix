@@ -16,7 +16,7 @@ class FavTableViewCell: UITableViewCell {
         super.awakeFromNib()
 
         backgroundColor = .clear
-        contentView.backgroundColor = .blue
+        contentView.backgroundColor = .white
         contentView.layer.cornerRadius = 16
         contentView.layer.masksToBounds = false
 

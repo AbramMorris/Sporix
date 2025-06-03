@@ -10,8 +10,13 @@ import UIKit
 class LeagueTableViewCell: UITableViewCell {
     @IBOutlet weak var leagueImage: UIImageView!
     @IBOutlet weak var leagueCountry: UILabel!
-    
     @IBOutlet weak var leagueTitle: UILabel!
+    
+    weak var delegate: FavoriteDelegate?
+    var league: League?
+    
+    var isFavorite = false
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,6 +27,7 @@ class LeagueTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10))
@@ -29,7 +35,20 @@ class LeagueTableViewCell: UITableViewCell {
     
 
     @IBAction func addFav(_ sender: Any) {
-        print("addFavorite")
+        print("tapped on fav >>>")
+
+        guard let league = league else { return }
+
+        print("tapped on fav >>>")
+        
+        if isFavorite {
+            print("league removed >>>>")
+            delegate?.didRemoveFromFavorites(league)
+        } else {
+            print("league added >>>>")
+            delegate?.didAddToFavorites(league)
+        }
+        isFavorite.toggle()
     }
     
 }

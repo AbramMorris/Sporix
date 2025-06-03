@@ -8,8 +8,7 @@
 import UIKit
 import Kingfisher
 
-class HomeViewController: UIViewController {
-    
+class HomeViewController: UIViewController ,FavoriteDelegate{
     var passedFlag: String?
 
     @IBOutlet weak var leagueTableView: UITableView!
@@ -28,8 +27,9 @@ class HomeViewController: UIViewController {
     private func setupPresenter() {
         let sportType = SportType(rawValue: passedFlag ?? "") ?? .football
         let api = LeagueAPI(sportType: sportType)
-        let repository = LeagueRepository(api: api)
-        presenter = LeaguesPresenter(view: self, repository: repository)
+        let leagueRepo = LeagueRepository(api: api)
+        let favRepo = FavRepository()
+        presenter = LeaguesPresenter(view: self, leagueRepository: leagueRepo,favRepository: favRepo)
     }
 
     private func setupTableView() {
@@ -54,6 +54,14 @@ class HomeViewController: UIViewController {
         } else {
             print("Could not cast to UITabBarController")
         }
+    }
+    
+    func didAddToFavorites(_ league: League) {
+        presenter.addLeagueToFavorites(league,passedFlag!)
+    }
+
+    func didRemoveFromFavorites(_ league: League) {
+        presenter.removeLeagueFromFavorites(league)
     }
 }
 
@@ -83,8 +91,13 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "leagueCell", for: indexPath) as? LeagueTableViewCell else {
             return UITableViewCell()
         }
-
+        
         let league = leagues[indexPath.row]
+        
+        cell.league = league
+        cell.isFavorite = presenter.isFavorite(league.league_key)
+        cell.delegate = self
+
         cell.leagueTitle.text = league.league_name
         cell.leagueCountry.text = league.country_name
         if let logoURLString = league.league_logo, let url = URL(string: logoURLString) {
@@ -101,3 +114,5 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         // You can add navigation logic here if needed
     }
 }
+
+

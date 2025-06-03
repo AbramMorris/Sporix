@@ -9,12 +9,11 @@ import UIKit
 
 class FavViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FavoritesViewProtocol   {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var favTableView: UITableView!
     
     var favItems: [Fav] = []
+    var allItems: [Fav] = []
     var presenter: FavoritesPresenter!
-
- 
-    @IBOutlet weak var favTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,14 +29,9 @@ class FavViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         presenter.loadFavorites()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-
-    
     func showFavorites(_ favorites: [Fav]) {
-        self.favItems = favorites
-        self.favTableView.reloadData()
+        self.allItems = favorites
+        applyFilter()
      }
      
     func showError(_ message: String) {
@@ -84,22 +78,52 @@ class FavViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
 
     @IBAction func filterSegment(_ sender: Any) {
-        switch (sender as AnyObject).selectedSegmentIndex {
-            case 1:
-            print("f")
-            case 2:
-            print("b")
-            case 3:
-            print("c")
-            case 4:
-            print("t")
-            case 0:
-            print("all")
+        applyFilter()
+    }
+    
+    func applyFilter() {
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            favItems = allItems
+        case 1:
+            favItems = allItems.filter { $0.sportType == SportType.football.rawValue }
+        case 2:
+            favItems = allItems.filter { $0.sportType == SportType.basketball.rawValue }
+        case 3:
+            favItems = allItems.filter { $0.sportType == SportType.cricket.rawValue }
+        case 4:
+            favItems = allItems.filter { $0.sportType == SportType.tennis.rawValue }
         default:
-            print("all")
-            break
-     
-           }
+            favItems = allItems
+        }
+        favTableView.reloadData()
+    }
+    
+    
+    func tableView(_ tableView: UITableView,
+                   trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath)
+    -> UISwipeActionsConfiguration? {
+
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] (_, _, completionHandler) in
+            guard let self = self else { return }
+            let item = self.favItems[indexPath.row]
+
+            let alert = UIAlertController(
+                title: "Remove Favorite",
+                message: "Are you sure you want to remove '\(item.LeagueName)' from favorites?",
+                preferredStyle: .alert
+            )
+
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            alert.addAction(UIAlertAction(title: "Delete", style: .destructive) { _ in
+                self.presenter.deleteFavorite(by: item.id)
+            })
+
+            self.present(alert, animated: true)
+            completionHandler(false)
+        }
+
+        return UISwipeActionsConfiguration(actions: [deleteAction])
     }
     
 }
