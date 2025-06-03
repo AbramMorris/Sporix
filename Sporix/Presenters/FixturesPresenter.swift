@@ -16,12 +16,25 @@ final class FixturesPresenter {
         self.repository = repository
     }
 
-    func fetchFixtures(leagueId: Int, from: String, to: String) {
-        repository.getFixtures(leagueId: leagueId, from: from, to: to) { [weak self] result in
+    func fetchUpcomingFixtures(leagueId: Int) {
+        repository.getUpcomingFixtures(leagueId: leagueId) { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let fixtures):
-                    self?.view?.showFixtures(fixtures)
+                    self?.view?.showUpcomingFixtures(fixtures)
+                case .failure(let error):
+                    self?.view?.showError(error.localizedDescription)
+                }
+            }
+        }
+    }
+
+    func fetchRecentFixtures(leagueId: Int) {
+        repository.getRecentFixtures(leagueId: leagueId) { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let fixtures):
+                    self?.view?.showRecentFixtures(fixtures)
                 case .failure(let error):
                     self?.view?.showError(error.localizedDescription)
                 }

@@ -14,7 +14,11 @@ final class FixtureRepository {
         self.api = api
     }
 
-    func getFixtures(leagueId: Int, from: String, to: String, completion: @escaping (Result<[Fixture], Error>) -> Void) {
-        api.fetchFixtures(leagueId: leagueId, from: from, to: to, completion: completion)
+    func getUpcomingFixtures(leagueId: Int, completion: @escaping (Result<[Fixture], Error>) -> Void) {
+        api.fetchUpcomingFixtures(leagueId: leagueId, completion: completion)
+    }
+
+    func getRecentFixtures(leagueId: Int, completion: @escaping (Result<[Fixture], Error>) -> Void) {
+        api.fetchRecentFixtures(leagueId: leagueId, completion: completion)
     }
 }

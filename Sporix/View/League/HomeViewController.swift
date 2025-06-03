@@ -19,12 +19,13 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        leagueTableView.allowsSelection = true
         setupTableView()
         setupBackButton()
         setupPresenter()
         presenter.fetchLeagues()
     }
-    
+
     private func setupPresenter() {
         let sportType = SportType(rawValue: passedFlag ?? "") ?? .football
         let api = LeagueAPI(sportType: sportType)
@@ -79,7 +80,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "leagueCell", for: indexPath) as? LeagueTableViewCell else {
             return UITableViewCell()
         }
@@ -97,7 +97,31 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Row tapped")
         tableView.deselectRow(at: indexPath, animated: true)
-        // You can add navigation logic here if needed
+        
+        let selectedLeague = leagues[indexPath.row]
+        let storyboard = UIStoryboard(name: "LeagueDetails", bundle: nil)
+        guard let leagueDetailsVC = storyboard.instantiateViewController(withIdentifier: "LeagueDetails") as? LeagueDetailsViewController else {
+            print("Could not instantiate LeagueDetailsViewController")
+            return
+        }
+        
+        leagueDetailsVC.leagueId = selectedLeague.league_key
+        leagueDetailsVC.leagueNameText = selectedLeague.league_name
+        leagueDetailsVC.countryNameText = selectedLeague.country_name
+        leagueDetailsVC.leagueLogoURL = selectedLeague.league_logo
+        leagueDetailsVC.sportType = SportType(rawValue: passedFlag ?? "") ?? .football
+
+        print("navigationController is \(String(describing: navigationController))")
+
+        if let nav = navigationController {
+            nav.pushViewController(leagueDetailsVC, animated: true)
+        } else {
+            print("navigationController is nil, presenting modally")
+            leagueDetailsVC.modalPresentationStyle = .fullScreen
+            present(leagueDetailsVC, animated: true)
+        }
     }
+
 }
