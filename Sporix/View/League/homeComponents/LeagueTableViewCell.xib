@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -23,14 +22,6 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart.rectangle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="l2e-u4-10F">
-                        <rect key="frame" x="352" y="21.666666666666664" width="50" height="46.999999999999993"/>
-                        <color key="tintColor" systemColor="tertiaryLabelColor"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="50" id="jCt-FX-5ZZ"/>
-                            <constraint firstAttribute="width" constant="50" id="yrd-Mp-dTD"/>
-                        </constraints>
-                    </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="images" translatesAutoresizingMaskIntoConstraints="NO" id="ax4-xb-ehs">
                         <rect key="frame" x="20" y="20" width="100" height="100"/>
                         <constraints>
@@ -49,19 +40,33 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfT-FT-Qlh">
+                        <rect key="frame" x="352" y="20" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="EjT-He-r8I"/>
+                            <constraint firstAttribute="height" constant="50" id="IfN-jD-4GR"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="filled" image="heart.fill" catalog="system" title="">
+                            <color key="baseBackgroundColor" red="0.65882354970000001" green="0.74901962280000001" blue="0.78431367870000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </buttonConfiguration>
+                        <connections>
+                            <action selector="addFav:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="tOS-jN-Dio"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" red="0.65882354970000001" green="0.74901962280000001" blue="0.78431367870000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 <constraints>
+                    <constraint firstItem="mfT-FT-Qlh" firstAttribute="leading" secondItem="mWa-Mp-4F0" secondAttribute="trailing" constant="10" id="66o-Vd-sKj"/>
                     <constraint firstItem="ax4-xb-ehs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="9vO-SA-6lC"/>
                     <constraint firstAttribute="trailing" secondItem="lX3-eQ-8VF" secondAttribute="trailing" constant="79" id="IrL-aU-rVd"/>
                     <constraint firstItem="ax4-xb-ehs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="TkW-ir-bHv"/>
-                    <constraint firstItem="l2e-u4-10F" firstAttribute="leading" secondItem="mWa-Mp-4F0" secondAttribute="trailing" constant="10" id="U5m-1W-jJX"/>
                     <constraint firstItem="lX3-eQ-8VF" firstAttribute="leading" secondItem="mWa-Mp-4F0" secondAttribute="leading" id="bwu-pn-9JY"/>
                     <constraint firstItem="mWa-Mp-4F0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="dvo-6U-pOI"/>
-                    <constraint firstItem="l2e-u4-10F" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="hLY-VH-WR9"/>
-                    <constraint firstAttribute="trailing" secondItem="l2e-u4-10F" secondAttribute="trailing" constant="20" id="imi-8D-FaF"/>
+                    <constraint firstAttribute="trailing" secondItem="mfT-FT-Qlh" secondAttribute="trailing" constant="20" id="h8Z-pH-95q"/>
                     <constraint firstItem="mWa-Mp-4F0" firstAttribute="leading" secondItem="ax4-xb-ehs" secondAttribute="trailing" constant="11" id="khl-K4-C1i"/>
                     <constraint firstItem="lX3-eQ-8VF" firstAttribute="top" secondItem="mWa-Mp-4F0" secondAttribute="bottom" constant="21.666666666666657" id="ldF-yh-gUM"/>
+                    <constraint firstItem="mfT-FT-Qlh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="nBy-5n-QbC"/>
                 </constraints>
                 <userDefinedRuntimeAttributes>
                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -76,7 +81,6 @@
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
             <connections>
-                <outlet property="favButton" destination="l2e-u4-10F" id="6Rg-wp-NvA"/>
                 <outlet property="leagueCountry" destination="lX3-eQ-8VF" id="maR-DK-JFV"/>
                 <outlet property="leagueImage" destination="ax4-xb-ehs" id="YgB-93-80W"/>
                 <outlet property="leagueTitle" destination="mWa-Mp-4F0" id="eU0-R5-Dpi"/>
@@ -85,10 +89,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="heart.rectangle.fill" catalog="system" width="128" height="93"/>
-        <image name="images" width="512" height="512"/>
-        <systemColor name="tertiaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <image name="heart.fill" catalog="system" width="128" height="107"/>
+        <image name="images" width="170.66667175292969" height="170.66667175292969"/>
     </resources>
 </document>
