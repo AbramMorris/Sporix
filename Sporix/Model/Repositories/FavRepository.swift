@@ -20,6 +20,9 @@ class FavRepository {
     func deleteFavorite(id: Int) {
         DatabaseManager.shared.deleteFav(withId: id)
     }
+    
+    func isFavExist(id: Int) -> Bool {
+        return DatabaseManager.shared.isFavExist(id: id)
+    }
+    
 }
-
-
