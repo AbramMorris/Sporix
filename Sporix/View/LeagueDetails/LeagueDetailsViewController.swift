@@ -8,7 +8,7 @@
 import UIKit
 
 class LeagueDetailsViewController: UIViewController {
-    
+
     @IBOutlet weak var leaguePhoto: UIImageView!
     @IBOutlet weak var CountryName: UILabel!
     @IBOutlet weak var teamsName: UILabel!
@@ -16,37 +16,46 @@ class LeagueDetailsViewController: UIViewController {
     @IBOutlet weak var upComingCollection: UICollectionView!
     @IBOutlet weak var teamsCollection: UICollectionView!
     @IBOutlet weak var legueName: UILabel!
-    
-    // MARK: - Public Vars (set before push)
+
     var leagueId: Int?
     var leagueNameText: String?
     var countryNameText: String?
     var leagueLogoURL: String?
     var sportType: SportType = .football
-    
-    // MARK: - Private Vars
+
     private var fixturesPresenter: FixturesPresenter!
     private var teamsPresenter: TeamsPresenter!
-    
+
+    @IBOutlet weak var scrolll: UIScrollView!
     private var recentFixtures: [Fixture] = []
     private var upcomingFixtures: [Fixture] = []
     private var teams: [Team] = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        scrolll.bounces = false
+        scrolll.alwaysBounceHorizontal = false
+        scrolll.alwaysBounceVertical = true
+        let fixtureNib = UINib(nibName: "FixtureCollectionViewCell", bundle: nil)
+               recentCollection.register(fixtureNib, forCellWithReuseIdentifier: "RecentCell")
+               upComingCollection.register(fixtureNib, forCellWithReuseIdentifier: "RecentCell")
+        let teamNib = UINib(nibName: "TeamsCollectionViewCell", bundle: nil)
+        teamsCollection.register(teamNib, forCellWithReuseIdentifier: "TeamCell")
+
+
         fixturesPresenter = FixturesPresenter(view: self, repository: FixtureRepository(api: FixtureAPI(sportType: sportType)))
         teamsPresenter = TeamsPresenter(view: self, repository: TeamRepository(api: TeamAPI(sportType: sportType)))
-        
+        teamsPresenter.fetchTeams(leagueId: leagueId ?? 1 )
+
         setupCollections()
         displayBasicInfo()
         fetchAllData()
     }
-    
+
     private func displayBasicInfo() {
         legueName.text = leagueNameText
         CountryName.text = countryNameText
-        
+
         if let logoURL = leagueLogoURL, let url = URL(string: logoURL) {
             URLSession.shared.dataTask(with: url) { data, _, _ in
                 if let data = data {
@@ -57,26 +66,15 @@ class LeagueDetailsViewController: UIViewController {
             }.resume()
         }
     }
-    
+
     private func fetchAllData() {
         guard let leagueId = leagueId else { return }
-        
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        
-        let today = Date()
-        let fromDate = Calendar.current.date(byAdding: .day, value: -7, to: today)!
-        let toDate = Calendar.current.date(byAdding: .day, value: 7, to: today)!
-        
-        fixturesPresenter.fetchFixtures(
-            leagueId: leagueId,
-            from: formatter.string(from: fromDate),
-            to: formatter.string(from: toDate)
-        )
-        
+
+        fixturesPresenter.fetchUpcomingFixtures(leagueId: leagueId)
+        fixturesPresenter.fetchRecentFixtures(leagueId: leagueId)
         teamsPresenter.fetchTeams(leagueId: leagueId)
     }
-    
+
     private func setupCollections() {
         recentCollection.dataSource = self
         recentCollection.delegate = self
@@ -87,25 +85,15 @@ class LeagueDetailsViewController: UIViewController {
     }
 }
 
-// MARK: - FixturesViewProtocol
 extension LeagueDetailsViewController: FixturesViewProtocol {
-    func showFixtures(_ fixtures: [Fixture]) {
-        let now = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        
-        recentFixtures = fixtures.filter {
-            guard let date = formatter.date(from: $0.eventDate) else { return false }
-            return date < now
-        }.sorted { $0.eventDate > $1.eventDate }
-        
-        upcomingFixtures = fixtures.filter {
-            guard let date = formatter.date(from: $0.eventDate) else { return false }
-            return date >= now
-        }.sorted { $0.eventDate < $1.eventDate }
-        
-        recentCollection.reloadData()
-        upComingCollection.reloadData()
+    func showUpcomingFixtures(_ fixtures: [Fixture]) {
+        self.upcomingFixtures = fixtures
+        self.upComingCollection.reloadData()
+    }
+
+    func showRecentFixtures(_ fixtures: [Fixture]) {
+        self.recentFixtures = fixtures
+        self.recentCollection.reloadData()
     }
 
     func showError(_ message: String) {
@@ -113,21 +101,15 @@ extension LeagueDetailsViewController: FixturesViewProtocol {
     }
 }
 
-// MARK: - TeamsViewProtocol
 extension LeagueDetailsViewController: TeamsViewProtocol {
     func showTeams(_ teams: [Team]) {
         self.teams = teams
-        teamsCollection.reloadData()
+        self.teamsCollection.reloadData()
     }
-
-//    func showError(_ message: String) {
-//        print("Teams error: \(message)")
-//    }
 }
 
-// MARK: - UICollectionView DataSource/Delegate
 extension LeagueDetailsViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == recentCollection {
             return recentFixtures.count
@@ -137,20 +119,71 @@ extension LeagueDetailsViewController: UICollectionViewDataSource, UICollectionV
             return teams.count
         }
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == recentCollection {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecentCell", for: indexPath)
-            // TODO: Cast to custom cell and configure
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecentCell", for: indexPath) as! FixtureCollectionViewCell
+            let fixture = recentFixtures[indexPath.row]
+            cell.team1Name.text = fixture.eventHomeTeam
+            cell.team2Name.text = fixture.eventAwayTeam
+            cell.matchResult.text = fixture.eventFinalResult ?? "-"
+            cell.matchDate.text = fixture.eventDate
+            cell.matchTime.text = fixture.eventTime
+            loadImage(urlStr: fixture.homeTeamLogo, into: cell.teamImage1)
+            loadImage(urlStr: fixture.awayTeamLogo, into: cell.teamImage2)
             return cell
+
         } else if collectionView == upComingCollection {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UpcomingCell", for: indexPath)
-            // TODO: Cast to custom cell and configure
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecentCell", for: indexPath) as! FixtureCollectionViewCell
+            let fixture = upcomingFixtures[indexPath.row]
+            cell.team1Name.text = fixture.eventHomeTeam
+            cell.team2Name.text = fixture.eventAwayTeam
+            cell.matchDate.text = fixture.eventDate
+            cell.matchTime.text = fixture.eventTime
+            cell.matchResult.text = nil
+            loadImage(urlStr: fixture.homeTeamLogo, into: cell.teamImage1)
+            loadImage(urlStr: fixture.awayTeamLogo, into: cell.teamImage2)
             return cell
+
         } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TeamCell", for: indexPath)
-            // TODO: Cast to custom cell and configure
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TeamCell", for: indexPath) as! TeamsCollectionViewCell
+            let team = teams[indexPath.row]
+            cell.teamName.text = team.teamName
+            cell.teamImage.image = nil
+            if let logoUrlStr = team.teamLogo, let url = URL(string: logoUrlStr) {
+                URLSession.shared.dataTask(with: url) { data, _, _ in
+                    if let data = data {
+                        DispatchQueue.main.async {
+                            cell.teamImage.image = UIImage(data: data)
+                        }
+                    }
+                }.resume()
+            }
+
             return cell
         }
+
+    }
+
+    private func loadImage(urlStr: String?, into imageView: UIImageView) {
+        imageView.image = nil
+        guard let urlStr = urlStr, let url = URL(string: urlStr) else { return }
+        URLSession.shared.dataTask(with: url) { data, _, _ in
+            if let data = data {
+                DispatchQueue.main.async {
+                    imageView.image = UIImage(data: data)
+                }
+            }
+        }.resume()
+    }
+}
+
+extension LeagueDetailsViewController: UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        return CGSize(width: 400, height: 250)
     }
 }

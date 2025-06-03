@@ -8,6 +8,7 @@
 import UIKit
 
 class LeagueTableViewCell: UITableViewCell {
+    @IBOutlet weak var favButton: UIButton!
     @IBOutlet weak var leagueImage: UIImageView!
     @IBOutlet weak var leagueCountry: UILabel!
     @IBOutlet weak var leagueTitle: UILabel!
