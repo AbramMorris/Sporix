@@ -174,6 +174,7 @@ extension LeagueDetailsViewController: UICollectionViewDataSource, UICollectionV
             // TODO: Navigate to team detail screen or perform another action
             let storyboard = UIStoryboard(name: "TeamDetails", bundle: nil)
             if let teamDeatailsVC = storyboard.instantiateViewController(withIdentifier: "TeamDetails") as? TeamDetailsViewController {
+                teamDeatailsVC.team = selectedTeam
                 teamDeatailsVC.modalPresentationStyle = .fullScreen
                 present(teamDeatailsVC, animated: true)
             } else {
