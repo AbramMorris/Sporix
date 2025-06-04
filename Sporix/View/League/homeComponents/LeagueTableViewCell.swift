@@ -16,7 +16,11 @@ class LeagueTableViewCell: UITableViewCell {
     weak var delegate: FavoriteDelegate?
     var league: League?
     
-    var isFavorite = false
+    var isFavorite = false {
+       didSet {
+           updateFavoriteIcon()
+       }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,14 +38,15 @@ class LeagueTableViewCell: UITableViewCell {
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10))
     }
     
+    private func updateFavoriteIcon() {
+        let imageName = isFavorite ? "heart.fill" : "heart"
+        let image = UIImage(systemName: imageName)?
+            .withTintColor(isFavorite ? .red : .white, renderingMode: .alwaysOriginal)
+        favButton.setImage(image, for: .normal)
+    }
 
     @IBAction func addFav(_ sender: Any) {
-        print("tapped on fav >>>")
-
         guard let league = league else { return }
-
-        print("tapped on fav >>>")
-        
         if isFavorite {
             print("league removed >>>>")
             delegate?.didRemoveFromFavorites(league)
