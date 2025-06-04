@@ -172,6 +172,13 @@ extension LeagueDetailsViewController: UICollectionViewDataSource, UICollectionV
             let selectedTeam = teams[indexPath.row]
             print("Selected team: \(selectedTeam.teamName ?? "Unknown")")
             // TODO: Navigate to team detail screen or perform another action
+            let storyboard = UIStoryboard(name: "TeamDetails", bundle: nil)
+            if let teamDeatailsVC = storyboard.instantiateViewController(withIdentifier: "TeamDetails") as? TeamDetailsViewController {
+                teamDeatailsVC.modalPresentationStyle = .fullScreen
+                present(teamDeatailsVC, animated: true)
+            } else {
+                print("Could not cast to TeamDetailsViewController")
+            }
         }
     }
 
