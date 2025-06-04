@@ -77,10 +77,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="akA-kn-Y97">
-                                                <rect key="frame" x="20" y="649" width="353" height="1000"/>
+                                                <rect key="frame" x="20" y="649" width="353" height="250"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="1000" id="OGu-NF-Aem"/>
+                                                    <constraint firstAttribute="height" constant="250" id="OGu-NF-Aem"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kBN-zS-3pa">
                                                     <size key="itemSize" width="128" height="128"/>
@@ -109,7 +109,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Teams" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3l-xQ-7gW">
-                                                <rect key="frame" x="20" y="1659" width="353" height="61"/>
+                                                <rect key="frame" x="20" y="909" width="353" height="61"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="61" id="U8I-Mc-XQM"/>
                                                 </constraints>
@@ -200,7 +200,7 @@
                                     <constraint firstAttribute="trailing" secondItem="efs-nv-OVf" secondAttribute="trailing" id="M97-FD-Uwy"/>
                                     <constraint firstItem="efs-nv-OVf" firstAttribute="leading" secondItem="fVe-cv-0dx" secondAttribute="leading" id="QRX-Ix-OW6"/>
                                     <constraint firstAttribute="bottom" secondItem="efs-nv-OVf" secondAttribute="bottom" id="Un7-Hs-0U7"/>
-                                    <constraint firstAttribute="height" constant="1220" id="qbh-Id-n1o"/>
+                                    <constraint firstAttribute="height" constant="1000" id="qbh-Id-n1o"/>
                                     <constraint firstItem="efs-nv-OVf" firstAttribute="top" secondItem="fVe-cv-0dx" secondAttribute="top" id="tLY-dT-IFT"/>
                                 </constraints>
                             </scrollView>
