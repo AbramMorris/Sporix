@@ -14,6 +14,7 @@ final class LeagueFavMapper {
             id: league.league_key,
             LeagueName: league.league_name,
             LeagueImage: league.league_logo,
+            countryName: league.country_name ?? "unknown",
             sportType: sportType
         )
     }

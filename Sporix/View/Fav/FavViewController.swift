@@ -11,6 +11,17 @@ class FavViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var favTableView: UITableView!
     
+    var emptyLabel: UILabel = {
+          let label = UILabel()
+          label.text = "No favorites found"
+          label.textAlignment = .center
+          label.textColor = .gray
+          label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+          label.numberOfLines = 0
+          label.isHidden = true
+          return label
+      }()
+    
     var favItems: [Fav] = []
     var allItems: [Fav] = []
     var presenter: FavoritesPresenter!
@@ -24,6 +35,15 @@ class FavViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         let nib = UINib(nibName: "FavTableViewCell", bundle: nil)
         favTableView.register(nib, forCellReuseIdentifier: "cell")
+        
+        view.addSubview(emptyLabel)
+         emptyLabel.translatesAutoresizingMaskIntoConstraints = false
+         NSLayoutConstraint.activate([
+             emptyLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+             emptyLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+             emptyLabel.leadingAnchor.constraint(greaterThanOrEqualTo: view.leadingAnchor, constant: 20),
+             emptyLabel.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -20)
+         ])
         
         presenter = FavoritesPresenter(view: self)
         presenter.loadFavorites()
@@ -68,14 +88,27 @@ class FavViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let fav = favItems[indexPath.row]
-        print("Item name >> \(fav.LeagueName)")
 
         if NetworkHelper.shared.isNetworkAvailable() {
-//            let storyboard = UIStoryboard(name: "Details", bundle: nil)
-//            if let detailsVC = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController {
-//                detailsVC.fav = fav
-//                navigationController?.pushViewController(detailsVC, animated: true)
-//            }
+            let storyboard = UIStoryboard(name: "LeagueDetails", bundle: nil)
+            guard let leagueDetailsVC = storyboard.instantiateViewController(withIdentifier: "LeagueDetails") as? LeagueDetailsViewController else {
+                print("Could not instantiate LeagueDetailsViewController")
+                return
+            }
+            leagueDetailsVC.leagueId = fav.id
+            leagueDetailsVC.leagueNameText = fav.LeagueName
+            leagueDetailsVC.countryNameText = fav.countryName
+            leagueDetailsVC.leagueLogoURL = fav.LeagueImage
+            leagueDetailsVC.sportType = SportType(rawValue: fav.sportType ) ?? .football
+            
+            if let nav = navigationController {
+                nav.pushViewController(leagueDetailsVC, animated: true)
+            } else {
+                print("navigationController is nil, presenting modally")
+                leagueDetailsVC.modalPresentationStyle = .fullScreen
+                present(leagueDetailsVC, animated: true)
+            }
+            
         } else {
             let alert = UIAlertController(title: "No Internet", message: "Please check your internet connection.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
@@ -103,6 +136,10 @@ class FavViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         default:
             favItems = allItems
         }
+        
+        let isEmpty = favItems.isEmpty
+        favTableView.isHidden = isEmpty
+        emptyLabel.isHidden = !isEmpty
         favTableView.reloadData()
     }
     
