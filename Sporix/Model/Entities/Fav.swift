@@ -11,6 +11,7 @@ struct Fav: Codable {
     let id: Int
     let LeagueName: String
     let LeagueImage: String?
+    let countryName: String
     let sportType: String
 }
 

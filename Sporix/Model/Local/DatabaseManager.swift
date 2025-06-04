@@ -14,6 +14,7 @@ class DatabaseManager {
         favEntity.id = Int64(fav.id)
         favEntity.leagueName = fav.LeagueName
         favEntity.leagueImage = fav.LeagueImage
+        favEntity.countryName = fav.countryName
         favEntity.sportType = fav.sportType
         saveContext()
     }
@@ -27,6 +28,7 @@ class DatabaseManager {
                     id: Int($0.id),
                     LeagueName: $0.leagueName ?? "",
                     LeagueImage: $0.leagueImage,
+                    countryName: $0.countryName ?? "",
                     sportType: $0.sportType ?? ""
                 )
             }
