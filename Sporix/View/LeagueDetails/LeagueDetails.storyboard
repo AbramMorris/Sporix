@@ -141,7 +141,7 @@
                                                 </cells>
                                             </collectionView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="F0j-Aq-7SH">
-                                                <rect key="frame" x="76" y="1256" width="241" height="128"/>
+                                                <rect key="frame" x="76" y="1256" width="240" height="128"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZvF-5B-CZX">
                                                     <size key="itemSize" width="128" height="128"/>
@@ -151,7 +151,7 @@
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U0f-cn-uOC">
-                                                        <rect key="frame" x="56.666666666666664" y="0.0" width="128" height="128"/>
+                                                        <rect key="frame" x="56" y="0.0" width="128" height="128"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="wMg-AN-XWN">
                                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
@@ -200,7 +200,7 @@
                                     <constraint firstAttribute="trailing" secondItem="efs-nv-OVf" secondAttribute="trailing" id="M97-FD-Uwy"/>
                                     <constraint firstItem="efs-nv-OVf" firstAttribute="leading" secondItem="fVe-cv-0dx" secondAttribute="leading" id="QRX-Ix-OW6"/>
                                     <constraint firstAttribute="bottom" secondItem="efs-nv-OVf" secondAttribute="bottom" id="Un7-Hs-0U7"/>
-                                    <constraint firstAttribute="height" constant="1000" id="qbh-Id-n1o"/>
+                                    <constraint firstAttribute="height" constant="1150" id="qbh-Id-n1o"/>
                                     <constraint firstItem="efs-nv-OVf" firstAttribute="top" secondItem="fVe-cv-0dx" secondAttribute="top" id="tLY-dT-IFT"/>
                                 </constraints>
                             </scrollView>
