@@ -64,3 +64,10 @@ struct Coach: Decodable {
         case coachAge = "coach_age"
     }
 }
+struct TeamMember {
+    let name: String
+    let imageURL: String
+    let position: String
+    let jerseyNumber: String
+    let nationality: String
+}
