@@ -8,13 +8,7 @@
 import UIKit
 import Kingfisher
 
-struct TeamMember {
-    let name: String
-    let imageURL: String
-    let position: String
-    let jerseyNumber: String
-    let nationality: String
-}
+
 
 class TeamDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -29,7 +23,7 @@ class TeamDetailsViewController: UIViewController, UITableViewDelegate, UITableV
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupBackButton()
         teamTableView.delegate = self
         teamTableView.dataSource = self
         teamTableView.separatorStyle = .none
@@ -39,7 +33,14 @@ class TeamDetailsViewController: UIViewController, UITableViewDelegate, UITableV
 
         configureTeamDetails()
     }
+    private func setupBackButton() {
+        let backButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backButtonTapped))
+        navigationItem.leftBarButtonItem = backButton
+    }
 
+    @objc private func backButtonTapped() {
+        dismiss(animated: true)
+    }
     private func configureTeamDetails() {
         guard let team = team else { return }
 
@@ -83,6 +84,7 @@ class TeamDetailsViewController: UIViewController, UITableViewDelegate, UITableV
                     jerseyNumber: player.playerNumber ?? "-",
                     nationality: player.playerCountry ?? "-"
                 )
+                print(player.playerCountry ?? "default value")
 
                 switch type {
                 case "defender": defenders.append(member)
