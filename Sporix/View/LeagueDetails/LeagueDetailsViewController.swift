@@ -33,10 +33,7 @@ class LeagueDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        scrolll.bounces = false
-//        scrolll.alwaysBounceHorizontal = false
-//        scrolll.alwaysBounceVertical = true
+        setupBackButton()
 
         let fixtureNib = UINib(nibName: "FixtureCollectionViewCell", bundle: nil)
         recentCollection.register(fixtureNib, forCellWithReuseIdentifier: "RecentCell")
@@ -53,7 +50,14 @@ class LeagueDetailsViewController: UIViewController {
         fetchAllData()
         showTeams(teams)
     }
+    private func setupBackButton() {
+        let backButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backButtonTapped))
+        navigationItem.leftBarButtonItem = backButton
+    }
 
+    @objc private func backButtonTapped() {
+        dismiss(animated: true)
+    }
     private func displayBasicInfo() {
         legueName.text = leagueNameText
         CountryName.text = countryNameText
@@ -68,7 +72,18 @@ class LeagueDetailsViewController: UIViewController {
             }.resume()
         }
     }
-
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        coordinator.animate(alongsideTransition: { _ in
+            if UIDevice.current.orientation.isLandscape {
+                print("Landscape")
+                self.scrolll.contentSize.height = 2000
+            } else {
+                print("Portrait")
+                self.scrolll.contentSize.height = 1000
+            }
+        })
+    }
     private func fetchAllData() {
         guard let leagueId = leagueId else { return }
 
@@ -174,6 +189,7 @@ extension LeagueDetailsViewController: UICollectionViewDataSource, UICollectionV
             // TODO: Navigate to team detail screen or perform another action
             let storyboard = UIStoryboard(name: "TeamDetails", bundle: nil)
             if let teamDeatailsVC = storyboard.instantiateViewController(withIdentifier: "TeamDetails") as? TeamDetailsViewController {
+                teamDeatailsVC.team = selectedTeam
                 teamDeatailsVC.modalPresentationStyle = .fullScreen
                 present(teamDeatailsVC, animated: true)
             } else {

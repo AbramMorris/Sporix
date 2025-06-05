@@ -12,15 +12,15 @@
         <!--League Details View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="LeagueDetails" id="Y6W-OH-hqX" customClass="LeagueDetailsViewController" customModule="Sporix" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LeagueDetail" id="Y6W-OH-hqX" customClass="LeagueDetailsViewController" customModule="Sporix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVe-cv-0dx">
-                                <rect key="frame" x="0.0" y="0.0" width="380" height="1220"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVe-cv-0dx">
+                                <rect key="frame" x="0.0" y="0.0" width="380" height="852"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="efs-nv-OVf">
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="efs-nv-OVf">
                                         <rect key="frame" x="1" y="-793" width="392" height="1550"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nW1-Kt-yAH">
@@ -77,10 +77,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="akA-kn-Y97">
-                                                <rect key="frame" x="20" y="649" width="353" height="1000"/>
+                                                <rect key="frame" x="20" y="649" width="353" height="250"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="1000" id="OGu-NF-Aem"/>
+                                                    <constraint firstAttribute="height" constant="250" id="OGu-NF-Aem"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kBN-zS-3pa">
                                                     <size key="itemSize" width="128" height="128"/>
@@ -109,7 +109,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Teams" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3l-xQ-7gW">
-                                                <rect key="frame" x="20" y="1659" width="353" height="61"/>
+                                                <rect key="frame" x="20" y="909" width="353" height="61"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="61" id="U8I-Mc-XQM"/>
                                                 </constraints>
@@ -140,8 +140,8 @@
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="F0j-Aq-7SH">
-                                                <rect key="frame" x="76" y="1256" width="241" height="128"/>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="F0j-Aq-7SH">
+                                                <rect key="frame" x="76" y="1275" width="240" height="109"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZvF-5B-CZX">
                                                     <size key="itemSize" width="128" height="128"/>
@@ -151,7 +151,7 @@
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U0f-cn-uOC">
-                                                        <rect key="frame" x="56.666666666666664" y="0.0" width="128" height="128"/>
+                                                        <rect key="frame" x="56" y="0.0" width="128" height="128"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="wMg-AN-XWN">
                                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
@@ -181,6 +181,7 @@
                                             <constraint firstItem="v9h-7B-bxU" firstAttribute="leading" secondItem="efs-nv-OVf" secondAttribute="leading" constant="20" id="eWf-0h-aCg"/>
                                             <constraint firstItem="dR6-3p-8Ks" firstAttribute="leading" secondItem="efs-nv-OVf" secondAttribute="leading" constant="20" id="eoJ-xf-mz2"/>
                                             <constraint firstAttribute="trailing" secondItem="N6w-FL-cib" secondAttribute="trailing" constant="20" id="fst-Hj-I4P"/>
+                                            <constraint firstAttribute="height" constant="1550" id="fxZ-gK-ecL"/>
                                             <constraint firstItem="v9h-7B-bxU" firstAttribute="top" secondItem="c3l-xQ-7gW" secondAttribute="bottom" constant="10" id="g58-hp-cfo"/>
                                             <constraint firstItem="N6w-FL-cib" firstAttribute="top" secondItem="nW1-Kt-yAH" secondAttribute="bottom" constant="10" id="gOT-AU-hyv"/>
                                             <constraint firstItem="UCW-Ce-AEi" firstAttribute="top" secondItem="dR6-3p-8Ks" secondAttribute="bottom" constant="10" id="hTV-YH-33G"/>
@@ -200,7 +201,7 @@
                                     <constraint firstAttribute="trailing" secondItem="efs-nv-OVf" secondAttribute="trailing" id="M97-FD-Uwy"/>
                                     <constraint firstItem="efs-nv-OVf" firstAttribute="leading" secondItem="fVe-cv-0dx" secondAttribute="leading" id="QRX-Ix-OW6"/>
                                     <constraint firstAttribute="bottom" secondItem="efs-nv-OVf" secondAttribute="bottom" id="Un7-Hs-0U7"/>
-                                    <constraint firstAttribute="height" constant="1220" id="qbh-Id-n1o"/>
+                                    <constraint firstAttribute="height" constant="1150" id="qbh-Id-n1o"/>
                                     <constraint firstItem="efs-nv-OVf" firstAttribute="top" secondItem="fVe-cv-0dx" secondAttribute="top" id="tLY-dT-IFT"/>
                                 </constraints>
                             </scrollView>
@@ -215,6 +216,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="F0j-Aq-7SH" secondAttribute="trailing" constant="77" id="qQ6-Xu-8O0"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="d6o-vb-XBl"/>
                     <size key="freeformSize" width="393" height="852"/>
                     <connections>
                         <outlet property="CountryName" destination="0CN-5o-QCw" id="SDK-AE-WvX"/>
@@ -228,6 +230,24 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="991.60305343511448" y="-2.1126760563380285"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="WfU-Ru-vWQ">
+            <objects>
+                <navigationController storyboardIdentifier="LeagueDetails" automaticallyAdjustsScrollViewInsets="NO" id="ck5-fP-RDv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="C8M-0u-TN6">
+                        <rect key="frame" x="0.0" y="118" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="amx-3m-xxr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3jr-Na-miI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="64.885496183206101" y="-2.1126760563380285"/>
         </scene>

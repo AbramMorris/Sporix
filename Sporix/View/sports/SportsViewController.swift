@@ -8,7 +8,8 @@
 import UIKit
 
 class SportsViewController: UIViewController {
-
+    @IBOutlet weak var backImage: UIImageView!
+    
     @IBOutlet weak var homeCollection: UICollectionView!
     
     let items = ["football", "basketball", "cricket", "tennis"]
@@ -16,6 +17,15 @@ class SportsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
+    }
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        if traitCollection.userInterfaceStyle == .dark {
+            backImage.image = UIImage(named: "DarckBack")
+        } else {
+            backImage.image = UIImage(named: "LightBack")
+        }
     }
 
     private func setupCollectionView() {
@@ -25,6 +35,8 @@ class SportsViewController: UIViewController {
         homeCollection.collectionViewLayout = createSwitcherLayout()
         homeCollection.delegate = self
         homeCollection.dataSource = self
+        homeCollection.backgroundColor = .clear
+
     }
 
     private func createSwitcherLayout() -> UICollectionViewCompositionalLayout {

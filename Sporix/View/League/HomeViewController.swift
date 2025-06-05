@@ -112,30 +112,26 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Row tapped")
         tableView.deselectRow(at: indexPath, animated: true)
-        
+
         let selectedLeague = leagues[indexPath.row]
         let storyboard = UIStoryboard(name: "LeagueDetails", bundle: nil)
-        guard let leagueDetailsVC = storyboard.instantiateViewController(withIdentifier: "LeagueDetails") as? LeagueDetailsViewController else {
-            print("Could not instantiate LeagueDetailsViewController")
+
+        guard let navController = storyboard.instantiateViewController(withIdentifier: "LeagueDetails") as? UINavigationController,
+              let leagueDetailsVC = navController.viewControllers.first as? LeagueDetailsViewController else {
+            print("Could not instantiate LeagueDetails UINavigationController or root VC")
             return
         }
-        
+
         leagueDetailsVC.leagueId = selectedLeague.league_key
         leagueDetailsVC.leagueNameText = selectedLeague.league_name
         leagueDetailsVC.countryNameText = selectedLeague.country_name
         leagueDetailsVC.leagueLogoURL = selectedLeague.league_logo
         leagueDetailsVC.sportType = SportType(rawValue: passedFlag ?? "") ?? .football
 
-        print("navigationController is \(String(describing: navigationController))")
-
-        if let nav = navigationController {
-            nav.pushViewController(leagueDetailsVC, animated: true)
-        } else {
-            print("navigationController is nil, presenting modally")
-            leagueDetailsVC.modalPresentationStyle = .fullScreen
-            present(leagueDetailsVC, animated: true)
-        }
+        navController.modalPresentationStyle = .fullScreen
+        present(navController, animated: true)
     }
+
 
 }
 
