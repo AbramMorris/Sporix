@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="HomeViewController" customModule="Sporix" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="League" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWx-Pe-6Mv">
+                                <rect key="frame" x="149" y="60" width="95" height="40"/>
+                                <fontDescription key="fontDescription" name="SnellRoundhand" family="Snell Roundhand" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="S3Q-Cc-bJu">
+                                <rect key="frame" x="0.0" y="129" width="393" height="655"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="S3Q-Cc-bJu" secondAttribute="bottom" id="5RQ-vZ-D5h"/>
+                            <constraint firstItem="S3Q-Cc-bJu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="KcM-o6-Kmb"/>
+                            <constraint firstAttribute="trailing" secondItem="qWx-Pe-6Mv" secondAttribute="trailing" constant="149" id="OYk-O9-WDq"/>
+                            <constraint firstItem="qWx-Pe-6Mv" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="60" id="VWP-3c-p8v"/>
+                            <constraint firstItem="qWx-Pe-6Mv" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="149" id="asx-Hc-e3B"/>
+                            <constraint firstItem="S3Q-Cc-bJu" firstAttribute="top" secondItem="qWx-Pe-6Mv" secondAttribute="bottom" constant="31" id="fDC-TC-kGw"/>
+                            <constraint firstItem="S3Q-Cc-bJu" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="yqF-uD-cSa"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="WID-4c-Z4m"/>
+                    <connections>
+                        <outlet property="leagueTableView" destination="S3Q-Cc-bJu" id="Y9V-vn-Bfg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3765.6488549618321" y="3.5211267605633805"/>
+        </scene>
+        <!--League-->
+        <scene sceneID="WJL-pl-z6p">
+            <objects>
+                <navigationController storyboardIdentifier="LeagueVC" automaticallyAdjustsScrollViewInsets="NO" id="Gxk-Qu-HZG" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="League" image="aa" id="TdF-gx-LMw">
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="73K-6o-YD7">
+                        <rect key="frame" x="0.0" y="118" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="fkR-Br-HER"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZU4-2H-KOD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2838.9312977099235" y="3.5211267605633805"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="aa" width="32" height="32"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
