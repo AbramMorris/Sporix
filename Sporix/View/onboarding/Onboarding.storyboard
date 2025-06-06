@@ -61,10 +61,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wLb-IW-pWi">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="851"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="uuuiuhuhuihiuhuihuihuihuihiuhuihiuhuihui" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hHT-38-Lbj" userLabel="hh">
-                                <rect key="frame" x="15" y="75" width="363" height="71.666666666666686"/>
+                                <rect key="frame" x="15" y="75" width="363" height="72"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.51344600340000002" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="72" id="fAE-6a-UPR"/>
@@ -77,7 +77,6 @@
                         <viewLayoutGuide key="safeArea" id="fYA-Lj-ye4"/>
                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                         <constraints>
-                            <constraint firstItem="fYA-Lj-ye4" firstAttribute="bottom" secondItem="hHT-38-Lbj" secondAttribute="bottom" constant="670.33000000000004" id="6GN-BA-fd6"/>
                             <constraint firstItem="hHT-38-Lbj" firstAttribute="top" secondItem="fYA-Lj-ye4" secondAttribute="top" constant="16" id="Gd3-4u-R0j"/>
                             <constraint firstItem="hHT-38-Lbj" firstAttribute="leading" secondItem="fYA-Lj-ye4" secondAttribute="leading" constant="15" id="YVv-Qr-evW"/>
                             <constraint firstItem="wLb-IW-pWi" firstAttribute="top" secondItem="8M0-xm-x61" secondAttribute="top" id="fzE-tF-ZL0"/>
@@ -137,10 +136,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="84o-rW-5HH">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="851"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="uuuiuhuhuihiuhuihuihuihuihiuhuihiuhuihui" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCf-we-QQe" userLabel="hh">
-                                <rect key="frame" x="15" y="75" width="363" height="71.666666666666686"/>
+                                <rect key="frame" x="15" y="75" width="363" height="72"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.51344600340000002" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="72" id="K9d-P6-s3z"/>
@@ -149,9 +148,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="um7-Sm-KuB">
-                                <rect key="frame" x="96" y="745" width="202" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="um7-Sm-KuB">
+                                <rect key="frame" x="95" y="743.66666666666663" width="203" height="34.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Start"/>
                             </button>
@@ -159,7 +157,8 @@
                         <viewLayoutGuide key="safeArea" id="1bx-pH-mD4"/>
                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                         <constraints>
-                            <constraint firstItem="1bx-pH-mD4" firstAttribute="bottom" secondItem="PCf-we-QQe" secondAttribute="bottom" constant="670.33000000000004" id="3S0-IY-LG0"/>
+                            <constraint firstItem="um7-Sm-KuB" firstAttribute="leading" secondItem="1bx-pH-mD4" secondAttribute="leading" constant="95" id="1Pc-Dl-glk"/>
+                            <constraint firstItem="1bx-pH-mD4" firstAttribute="trailing" secondItem="um7-Sm-KuB" secondAttribute="trailing" constant="95" id="FSB-3L-w4G"/>
                             <constraint firstItem="84o-rW-5HH" firstAttribute="top" secondItem="5WC-1m-KUD" secondAttribute="top" id="IYo-Zc-e7t"/>
                             <constraint firstItem="1bx-pH-mD4" firstAttribute="trailing" secondItem="84o-rW-5HH" secondAttribute="trailing" id="aWK-HZ-alk"/>
                             <constraint firstItem="PCf-we-QQe" firstAttribute="top" secondItem="1bx-pH-mD4" secondAttribute="top" constant="16" id="akJ-Ai-h4j"/>
@@ -167,6 +166,7 @@
                             <constraint firstItem="1bx-pH-mD4" firstAttribute="trailing" secondItem="PCf-we-QQe" secondAttribute="trailing" constant="15" id="dvX-H6-rva"/>
                             <constraint firstItem="PCf-we-QQe" firstAttribute="leading" secondItem="1bx-pH-mD4" secondAttribute="leading" constant="15" id="rEK-Zv-Mud"/>
                             <constraint firstAttribute="bottom" secondItem="84o-rW-5HH" secondAttribute="bottom" id="rTy-Lf-b0Z"/>
+                            <constraint firstItem="1bx-pH-mD4" firstAttribute="bottom" secondItem="um7-Sm-KuB" secondAttribute="bottom" constant="40" id="yY1-fv-fWw"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -177,7 +177,7 @@
     </scenes>
     <resources>
         <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
