@@ -52,7 +52,6 @@ struct Fixture: Decodable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
-        // Flexible decoding for date
         if let date = try? container.decode(String.self, forKey: .eventDate) {
             self.eventDate = date
         } else if let date = try? container.decode(String.self, forKey: .eventDateStart) {

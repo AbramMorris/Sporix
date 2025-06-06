@@ -7,14 +7,16 @@
 
 import Foundation
 
-final class TeamRepository {
+class TeamRepository {
     private let api: TeamAPI
 
     init(api: TeamAPI) {
         self.api = api
     }
 
-    func getTeams(leagueId: Int, completion: @escaping (Result<[Team], Error>) -> Void) {
-        api.fetchTeams(leagueId: leagueId, completion: completion)
+    func getTeamsOrPlayers(leagueId: Int, completion: @escaping (Result<[Any], Error>) -> Void) {
+        api.fetchTeamsOrPlayers(leagueId: leagueId) { result in
+            completion(result)
+        }
     }
 }
