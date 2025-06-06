@@ -19,6 +19,8 @@ class FavTableViewCell: UITableViewCell {
         contentView.backgroundColor = .white
         contentView.layer.cornerRadius = 16
         contentView.layer.masksToBounds = false
+        
+        titleLabel.textColor = .black
 
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.05

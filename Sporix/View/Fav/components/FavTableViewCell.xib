@@ -17,10 +17,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Si4-F7-R5c">
-                        <rect key="frame" x="4" y="0.0" width="50" height="50"/>
+                        <rect key="frame" x="4" y="0.0" width="90" height="90"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="50" id="gK9-9t-HlQ"/>
-                            <constraint firstAttribute="height" constant="50" id="i4b-Hp-ZCv"/>
+                            <constraint firstAttribute="width" constant="90" id="gK9-9t-HlQ"/>
+                            <constraint firstAttribute="height" constant="90" id="i4b-Hp-ZCv"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -28,22 +28,19 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EsO-TP-DCx">
-                        <rect key="frame" x="78" y="17" width="48" height="45"/>
+                    <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EsO-TP-DCx">
+                        <rect key="frame" x="104" y="21" width="272" height="48"/>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="EsO-TP-DCx" firstAttribute="leading" secondItem="Si4-F7-R5c" secondAttribute="trailing" constant="24" id="3Kv-fK-uEs"/>
                     <constraint firstItem="Si4-F7-R5c" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="4" id="Cac-Oj-EZV"/>
-                    <constraint firstAttribute="bottom" secondItem="EsO-TP-DCx" secondAttribute="bottom" constant="37" id="FuV-h9-P1B"/>
-                    <constraint firstAttribute="bottom" secondItem="Si4-F7-R5c" secondAttribute="bottom" id="PnN-AN-Yc0"/>
                     <constraint firstItem="Si4-F7-R5c" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Qab-QV-8yu"/>
-                    <constraint firstAttribute="trailing" secondItem="EsO-TP-DCx" secondAttribute="trailing" constant="10" id="Z7D-SZ-cKj"/>
-                    <constraint firstAttribute="trailing" secondItem="Si4-F7-R5c" secondAttribute="trailing" constant="286" id="kW1-Hi-vzz"/>
-                    <constraint firstItem="EsO-TP-DCx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="17" id="pqH-a1-RLo"/>
+                    <constraint firstItem="EsO-TP-DCx" firstAttribute="centerY" secondItem="Si4-F7-R5c" secondAttribute="centerY" id="VrO-md-rKU"/>
+                    <constraint firstAttribute="trailing" secondItem="EsO-TP-DCx" secondAttribute="trailing" constant="10" id="mcf-Aj-UoL"/>
+                    <constraint firstItem="EsO-TP-DCx" firstAttribute="leading" secondItem="Si4-F7-R5c" secondAttribute="trailing" constant="10" id="xnP-pE-wBq"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
