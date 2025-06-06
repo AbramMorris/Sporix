@@ -225,6 +225,7 @@
                         <outlet property="recentCollection" destination="akA-kn-Y97" id="JI1-qv-lxN"/>
                         <outlet property="scrolll" destination="fVe-cv-0dx" id="o5s-vP-W0h"/>
                         <outlet property="teamsCollection" destination="v9h-7B-bxU" id="vIo-nN-p5Q"/>
+                        <outlet property="teamsLabel" destination="c3l-xQ-7gW" id="kQ7-Gh-mCR"/>
                         <outlet property="teamsName" destination="c3l-xQ-7gW" id="zk4-Qa-toe"/>
                         <outlet property="upComingCollection" destination="dR6-3p-8Ks" id="MiY-WO-Rss"/>
                     </connections>
