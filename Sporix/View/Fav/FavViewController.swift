@@ -91,7 +91,8 @@ class FavViewController: UIViewController, UITableViewDelegate, UITableViewDataS
 
         if NetworkHelper.shared.isNetworkAvailable() {
             let storyboard = UIStoryboard(name: "LeagueDetails", bundle: nil)
-            guard let leagueDetailsVC = storyboard.instantiateViewController(withIdentifier: "LeagueDetails") as? LeagueDetailsViewController else {
+            guard let navController = storyboard.instantiateViewController(withIdentifier: "LeagueDetails") as? UINavigationController,
+                  let leagueDetailsVC = navController.viewControllers.first as? LeagueDetailsViewController else {
                 print("Could not instantiate LeagueDetailsViewController")
                 return
             }
@@ -102,11 +103,11 @@ class FavViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             leagueDetailsVC.sportType = SportType(rawValue: fav.sportType ) ?? .football
             
             if let nav = navigationController {
-                nav.pushViewController(leagueDetailsVC, animated: true)
+                nav.pushViewController(navController, animated: true)
             } else {
                 print("navigationController is nil, presenting modally")
-                leagueDetailsVC.modalPresentationStyle = .fullScreen
-                present(leagueDetailsVC, animated: true)
+                navController.modalPresentationStyle = .fullScreen
+                present(navController, animated: true)
             }
             
         } else {

@@ -35,7 +35,7 @@ enum APIEndpoint: String {
 struct Constants {
 
     struct API {
-        static let apiKey = "093ffc8992aca57429c7bfc95d800ed3f2065a649b8212ab62a3052c646754d4"
+        static let apiKey = "a94a2c95e018a43287adc17b5d4eae82f866034c322db2573bfec40ce79c47ae"
 
         static func parameters(for endpoint: APIEndpoint) -> [String: Any] {
             return [
