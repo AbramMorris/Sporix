@@ -168,7 +168,6 @@ class TeamDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         Name: \(member.name)
         Position: \(member.position)
         Jersey Number: \(member.jerseyNumber)
-        Nationality: \(member.nationality)
         """, preferredStyle: .alert)
 
         let imageView = UIImageView(frame: CGRect(x: 20, y: 10, width: 230, height: 150))

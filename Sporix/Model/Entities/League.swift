@@ -12,4 +12,11 @@ struct League: Decodable {
     let league_name: String
     let country_name: String?
     let league_logo: String?
+
+    enum CodingKeys: String, CodingKey {
+        case league_key = "league_key"
+        case league_name = "league_name"
+        case country_name = "country_name"
+        case league_logo = "league_logo"
+    }
 }

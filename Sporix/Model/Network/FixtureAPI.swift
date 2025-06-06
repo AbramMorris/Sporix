@@ -43,20 +43,21 @@ final class FixtureAPI {
         let parameters: [String: Any] = [
             "met": "Fixtures",
             "APIkey": Constants.API.apiKey,
-            "leagueId": leagueId,
+            "league_id": leagueId,
             "from": from,
             "to": to
         ]
-
         NetworkService.shared.getRequest(url: url, parameters: parameters) { (result: Result<FixturesResponse, AFError>) in
             switch result {
             case .success(let response):
+                print("fixtures success")
                 if response.success == 1 {
                     completion(.success(response.result))
                 } else {
                     completion(.failure(NSError(domain: "FixtureAPI", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to fetch fixtures"])))
                 }
             case .failure(let error):
+                print("fixtures failure")
                 completion(.failure(error))
             }
         }

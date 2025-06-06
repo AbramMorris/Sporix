@@ -17,6 +17,9 @@ enum SportType: String {
     var baseURL: String {
         return "https://apiv2.allsportsapi.com/\(self.rawValue)/"
     }
+    var isTennis: Bool {
+        self == .tennis
+    }
 }
 
 enum APIEndpoint: String {
