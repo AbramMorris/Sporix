@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import Kingfisher
 
 class LeagueDetailsViewController: UIViewController {
 
+    @IBOutlet weak var teamsLabel: UILabel!
     @IBOutlet weak var leaguePhoto: UIImageView!
     @IBOutlet weak var CountryName: UILabel!
     @IBOutlet weak var teamsName: UILabel!
@@ -22,19 +24,21 @@ class LeagueDetailsViewController: UIViewController {
     var leagueNameText: String?
     var countryNameText: String?
     var leagueLogoURL: String?
-    var sportType: SportType = .football
+    var sportType: SportType?
 
     private var fixturesPresenter: FixturesPresenter!
     private var teamsPresenter: TeamsPresenter!
 
     private var recentFixtures: [Fixture] = []
     private var upcomingFixtures: [Fixture] = []
+
     private var teams: [Team] = []
+    private var players: [TennisPlayer] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBackButton()
-
+        print("sports Name:\(sportType ?? .football)")
         let fixtureNib = UINib(nibName: "FixtureCollectionViewCell", bundle: nil)
         recentCollection.register(fixtureNib, forCellWithReuseIdentifier: "RecentCell")
         upComingCollection.register(fixtureNib, forCellWithReuseIdentifier: "RecentCell")
@@ -42,14 +46,17 @@ class LeagueDetailsViewController: UIViewController {
         let teamNib = UINib(nibName: "TeamsCollectionViewCell", bundle: nil)
         teamsCollection.register(teamNib, forCellWithReuseIdentifier: "TeamCell")
 
-        fixturesPresenter = FixturesPresenter(view: self, repository: FixtureRepository(api: FixtureAPI(sportType: sportType)))
-        teamsPresenter = TeamsPresenter(view: self, repository: TeamRepository(api: TeamAPI(sportType: sportType)))
+        fixturesPresenter = FixturesPresenter(view: self, repository: FixtureRepository(api: FixtureAPI(sportType: sportType ?? .football)))
+        teamsPresenter = TeamsPresenter(view: self, repository: TeamRepository(api: TeamAPI(sportType: sportType ?? .football)), sportType: sportType ?? .football)
 
         setupCollections()
         displayBasicInfo()
         fetchAllData()
-        showTeams(teams)
+        updateTeamsLabel()
+        print("player count:\(players.count)")
+
     }
+
     private func setupBackButton() {
         let backButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backButtonTapped))
         navigationItem.leftBarButtonItem = backButton
@@ -58,54 +65,44 @@ class LeagueDetailsViewController: UIViewController {
     @objc private func backButtonTapped() {
         dismiss(animated: true)
     }
+
     private func displayBasicInfo() {
         legueName.text = leagueNameText
         CountryName.text = countryNameText
 
         if let logoURL = leagueLogoURL, let url = URL(string: logoURL) {
-            URLSession.shared.dataTask(with: url) { data, _, _ in
-                if let data = data {
-                    DispatchQueue.main.async {
-                        self.leaguePhoto.image = UIImage(data: data)
-                    }
-                }
-            }.resume()
+            leaguePhoto.kf.setImage(with: url, placeholder: UIImage(systemName: "photo"))
         }
     }
+
+    private func updateTeamsLabel() {
+        teamsLabel.text = sportType == .tennis ? "Players" : "Teams"
+    }
+
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         coordinator.animate(alongsideTransition: { _ in
-            if UIDevice.current.orientation.isLandscape {
-                print("Landscape")
-                self.scrolll.contentSize.height = 2000
-            } else {
-                print("Portrait")
-                self.scrolll.contentSize.height = 1000
-            }
+            self.scrolll.contentSize.height = UIDevice.current.orientation.isLandscape ? 2000 : 1000
         })
     }
+
     private func fetchAllData() {
         guard let leagueId = leagueId else { return }
 
         fixturesPresenter.fetchUpcomingFixtures(leagueId: leagueId)
         fixturesPresenter.fetchRecentFixtures(leagueId: leagueId)
-        teamsPresenter.fetchTeams(leagueId: leagueId)
+        teamsPresenter.fetchData(leagueId: leagueId)
     }
 
     private func setupCollections() {
-        recentCollection.dataSource = self
-        recentCollection.delegate = self
-
-        upComingCollection.dataSource = self
-        upComingCollection.delegate = self
-
-        teamsCollection.dataSource = self
-        teamsCollection.delegate = self
-
-
+        [recentCollection, upComingCollection, teamsCollection].forEach {
+            $0?.dataSource = self
+            $0?.delegate = self
+        }
     }
 }
 
+// MARK: - FixturesViewProtocol
 extension LeagueDetailsViewController: FixturesViewProtocol {
     func showUpcomingFixtures(_ fixtures: [Fixture]) {
         self.upcomingFixtures = fixtures
@@ -122,24 +119,36 @@ extension LeagueDetailsViewController: FixturesViewProtocol {
     }
 }
 
+// MARK: - TeamsViewProtocol
 extension LeagueDetailsViewController: TeamsViewProtocol {
-    func showTeams(_ teams: [Team]) {
-        print("Teams received: \(teams.count)")
+    func showTennisPlayers(_ players: [TennisPlayer]) {
+        self.players = players
+        self.teams = []
+        DispatchQueue.main.async {
+            self.teamsCollection.reloadData()
+        }
+    }
 
+    func showTeams(_ teams: [Team]) {
         self.teams = teams
-        self.teamsCollection.reloadData()
+        self.players = []
+        DispatchQueue.main.async {
+            self.teamsCollection.reloadData()
+        }
     }
 }
 
+
+// MARK: - UICollectionViewDataSource & Delegate
 extension LeagueDetailsViewController: UICollectionViewDataSource, UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == recentCollection {
-            return recentFixtures.count
-        } else if collectionView == upComingCollection {
-            return upcomingFixtures.count
-        } else {
-            return teams.count
+        switch collectionView {
+        case recentCollection: return recentFixtures.count
+        case upComingCollection: return upcomingFixtures.count
+        case teamsCollection:
+            return sportType == .tennis ? players.count : teams.count
+        default: return 0
         }
     }
 
@@ -156,26 +165,39 @@ extension LeagueDetailsViewController: UICollectionViewDataSource, UICollectionV
             cell.matchTime.text = fixture.eventTime
             cell.matchResult.text = collectionView == recentCollection ? (fixture.eventFinalResult ?? "-") : nil
 
-            loadImage(urlStr: fixture.homeTeamLogo, into: cell.teamImage1)
-            loadImage(urlStr: fixture.awayTeamLogo, into: cell.teamImage2)
+            if let homeLogo = fixture.homeTeamLogo, let url = URL(string: homeLogo) {
+                cell.teamImage1.kf.setImage(with: url, placeholder: UIImage(systemName: "photo"))
+            } else {
+                cell.teamImage1.image = UIImage(systemName: "photo")
+            }
+
+            if let awayLogo = fixture.awayTeamLogo, let url = URL(string: awayLogo) {
+                cell.teamImage2.kf.setImage(with: url, placeholder: UIImage(systemName: "photo"))
+            } else {
+                cell.teamImage2.image = UIImage(systemName: "photo")
+            }
 
             return cell
 
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TeamCell", for: indexPath) as! TeamsCollectionViewCell
-            let team = teams[indexPath.row]
 
-            cell.teamName.text = team.teamName
-            cell.teamImage.image = nil
-
-            if let logoUrlStr = team.teamLogo, let url = URL(string: logoUrlStr) {
-                URLSession.shared.dataTask(with: url) { data, _, _ in
-                    if let data = data {
-                        DispatchQueue.main.async {
-                            cell.teamImage.image = UIImage(data: data)
-                        }
-                    }
-                }.resume()
+            if sportType == .tennis {
+                let player = players[indexPath.row]
+                cell.teamName.text = player.player_name
+                if let imgStr = player.player_logo, let url = URL(string: imgStr) {
+                    cell.teamImage.kf.setImage(with: url, placeholder: UIImage(systemName: "person.crop.circle"))
+                } else {
+                    cell.teamImage.image = UIImage(systemName: "person.crop.circle")
+                }
+            } else {
+                let team = teams[indexPath.row]
+                cell.teamName.text = team.teamName
+                if let logoUrlStr = team.teamLogo, let url = URL(string: logoUrlStr) {
+                    cell.teamImage.kf.setImage(with: url, placeholder: UIImage(systemName: "photo"))
+                } else {
+                    cell.teamImage.image = UIImage(systemName: "photo")
+                }
             }
 
             return cell
@@ -184,30 +206,25 @@ extension LeagueDetailsViewController: UICollectionViewDataSource, UICollectionV
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == teamsCollection {
-            let selectedTeam = teams[indexPath.row]
-            print("Selected team: \(selectedTeam.teamName ?? "Unknown")")
-            // TODO: Navigate to team detail screen or perform another action
-            let storyboard = UIStoryboard(name: "TeamDetails", bundle: nil)
-            if let teamDeatailsVC = storyboard.instantiateViewController(withIdentifier: "TeamDetails") as? TeamDetailsViewController {
-                teamDeatailsVC.team = selectedTeam
-                teamDeatailsVC.modalPresentationStyle = .fullScreen
-                present(teamDeatailsVC, animated: true)
+            if sportType == .tennis {
+                let selectedPlayer = players[indexPath.row]
+                print("Selected player: \(selectedPlayer.player_name)")
+                
             } else {
-                print("Could not cast to TeamDetailsViewController")
-            }
-        }
-    }
-
-    private func loadImage(urlStr: String?, into imageView: UIImageView) {
-        imageView.image = nil
-        guard let urlStr = urlStr, let url = URL(string: urlStr) else { return }
-        URLSession.shared.dataTask(with: url) { data, _, _ in
-            if let data = data {
-                DispatchQueue.main.async {
-                    imageView.image = UIImage(data: data)
+                let selectedTeam = teams[indexPath.row]
+                print("Selected team: \(selectedTeam.teamName ?? "Unknown")")
+                let storyboard = UIStoryboard(name: "TeamDetails", bundle: nil)
+                if let navController = storyboard.instantiateViewController(withIdentifier: "navigateToTeamDetails") as? UINavigationController,
+                   let teamDetailsVC = navController.viewControllers.first as? TeamDetailsViewController {
+                    
+                    teamDetailsVC.team = selectedTeam
+                    navController.modalPresentationStyle = .fullScreen
+                    present(navController, animated: true)
+                } else {
+                    print("Could not cast to TeamDetailsViewController")
                 }
             }
-        }.resume()
+        }
     }
 }
 

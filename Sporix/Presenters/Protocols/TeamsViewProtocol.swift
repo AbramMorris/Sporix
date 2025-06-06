@@ -9,5 +9,6 @@ import Foundation
 
 protocol TeamsViewProtocol: AnyObject {
     func showTeams(_ teams: [Team])
+    func showTennisPlayers(_ players: [TennisPlayer])
     func showError(_ message: String)
 }
