@@ -8,6 +8,7 @@
 import UIKit
 
 class FavViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FavoritesViewProtocol   {
+    @IBOutlet weak var backImage: UIImageView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var favTableView: UITableView!
     
@@ -32,7 +33,7 @@ class FavViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         favTableView.dataSource = self
         segmentedControl.selectedSegmentIndex = 0
         favTableView.separatorStyle = .none
-        
+        favTableView.backgroundColor = .clear
         let nib = UINib(nibName: "FavTableViewCell", bundle: nil)
         favTableView.register(nib, forCellReuseIdentifier: "cell")
         
@@ -48,7 +49,15 @@ class FavViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         presenter = FavoritesPresenter(view: self)
         presenter.loadFavorites()
     }
-    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        if traitCollection.userInterfaceStyle == .dark {
+            backImage.image = UIImage(named: "DarckBack")
+        } else {
+            backImage.image = UIImage(named: "LightBack")
+        }
+    }
     func showFavorites(_ favorites: [Fav]) {
         self.allItems = favorites
         applyFilter()
