@@ -26,6 +26,16 @@ class ViewController: UIViewController {
 
         animationView = LottieAnimationView(animation: animation)
         guard let animationView = animationView else { return }
+        
+        animationView.translatesAutoresizingMaskIntoConstraints = false
+         view.addSubview(animationView)
+        
+        NSLayoutConstraint.activate([
+            animationView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            animationView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            animationView.topAnchor.constraint(equalTo: view.topAnchor),
+            animationView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
 
         animationView.frame = view.bounds
         view.addSubview(animationView)
