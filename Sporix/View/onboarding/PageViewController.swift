@@ -78,15 +78,20 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     }
 
     private func setupPageControl() {
-        pageControl = UIPageControl(frame: CGRect(x: 0,
-                                                  y: view.frame.height - 150,
-                                                  width: view.frame.width,
-                                                  height: 50))
+        pageControl = UIPageControl()
         pageControl.numberOfPages = pages.count
         pageControl.currentPage = 0
         pageControl.pageIndicatorTintColor = .lightGray
         pageControl.currentPageIndicatorTintColor = .systemBlue
+        pageControl.isUserInteractionEnabled = false
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+        
         view.addSubview(pageControl)
+
+        NSLayoutConstraint.activate([
+            pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            pageControl.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -80)
+        ])
     }
 
     @objc private func nextButtonTapped(_ sender: UIButton) {
