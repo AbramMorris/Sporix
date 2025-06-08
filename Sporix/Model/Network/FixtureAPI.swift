@@ -52,8 +52,8 @@ final class FixtureAPI {
                   parameters["league_id"] = leagueId
               case .basketball:
                   parameters["league_id"] = leagueId
-            case .football:
-            parameters["leagueId"] = leagueId
+              case .football:
+                  parameters["leagueId"] = leagueId
 //            case .cricket:
 //            parameters["league_id"] = leagueId
               default:
