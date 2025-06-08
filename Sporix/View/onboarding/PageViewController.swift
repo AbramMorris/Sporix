@@ -13,10 +13,14 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     private var pageControl = UIPageControl()
     
     private let pageData: [(image: String, description: String)] = [
-        ("football", "Kick off your game with Sporix."),
-        ("basketball", "Shoot, score, and track your stats."),
-        ("tennis", "Serve up connections with players."),
-        ("cricket", "Start your cricket journey now!")
+        ("football", NSLocalizedString("onBoarding1", comment: "1")
+),
+        ("basketball", NSLocalizedString("onBoarding2", comment: "1")
+),
+        ("tennis", NSLocalizedString("onBoarding3", comment: "1")
+),
+        ("cricket", NSLocalizedString("onBoarding4", comment: "1")
+)
     ]
 
 
@@ -64,7 +68,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
         
         if let button = page.view.viewWithTag(3) as? UIButton {
             let isLastPage = index == pageData.count - 1
-            button.setTitle(isLastPage ? "Start" : "Next", for: .normal)
+            button.setTitle(isLastPage ? NSLocalizedString("Start", comment:"Start") : "Next", for: .normal)
             button.tag = index
             button.addTarget(self, action: #selector(nextButtonTapped(_:)), for: .touchUpInside)
 
