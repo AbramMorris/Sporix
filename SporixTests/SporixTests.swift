@@ -42,7 +42,6 @@ final class SporixTests: XCTestCase {
             }
             expectation.fulfill()
         }
-
         waitForExpectations(timeout: 15)
     }
 

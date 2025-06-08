@@ -28,6 +28,10 @@
 		A456A5842DEC8DF200C89097 /* home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A456A57F2DEC8DF200C89097 /* home.storyboard */; };
 		A481D9A42DEDB3D50056FA71 /* LeagueTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A481D9A32DEDB3D50056FA71 /* LeagueTableViewCell.xib */; };
 		A481D9A52DEDB3D50056FA71 /* LeagueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A481D9A22DEDB3D50056FA71 /* LeagueTableViewCell.swift */; };
+		A48689622DF4E6EC00BABD97 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A48689602DF4E6EC00BABD97 /* Localizable.strings */; };
+		A48689B32DF5ADCD00BABD97 /* FakeNetworkServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48689B22DF5ADCB00BABD97 /* FakeNetworkServices.swift */; };
+		A48689B52DF5AE2600BABD97 /* MockNetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48689B42DF5AE2500BABD97 /* MockNetworkManagerTests.swift */; };
+		A48689B92DF5E7C200BABD97 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48689B82DF5E7C200BABD97 /* TabBarViewController.swift */; };
 		CE3D7F602DEDB3880003C7FF /* Fav.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3D7F5F2DEDB3880003C7FF /* Fav.swift */; };
 		CE3D7F6B2DEE97030003C7FF /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3D7F6A2DEE97030003C7FF /* DatabaseManager.swift */; };
 		CE73347B2DEA527A00EDABC3 /* lottiesplash.json in Resources */ = {isa = PBXBuildFile; fileRef = CE73347A2DEA527A00EDABC3 /* lottiesplash.json */; };
@@ -109,6 +113,13 @@
 		A456A5802DEC8DF200C89097 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A481D9A22DEDB3D50056FA71 /* LeagueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueTableViewCell.swift; sourceTree = "<group>"; };
 		A481D9A32DEDB3D50056FA71 /* LeagueTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeagueTableViewCell.xib; sourceTree = "<group>"; };
+		A48689612DF4E6EC00BABD97 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A48689632DF4E75800BABD97 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		A48689642DF4E75800BABD97 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
+		A48689652DF4E75800BABD97 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A48689B22DF5ADCB00BABD97 /* FakeNetworkServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeNetworkServices.swift; sourceTree = "<group>"; };
+		A48689B42DF5AE2500BABD97 /* MockNetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManagerTests.swift; sourceTree = "<group>"; };
+		A48689B82DF5E7C200BABD97 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		A8898356406F09C2DAC56356 /* Pods_Sporix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sporix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE3D7F5F2DEDB3880003C7FF /* Fav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fav.swift; sourceTree = "<group>"; };
 		CE3D7F6A2DEE97030003C7FF /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
@@ -393,6 +404,7 @@
 				CE7334762DEA50AE00EDABC3 /* App */,
 				CEB1DA332DE74DCB009F8AB7 /* Info.plist */,
 				CEAFA0A52DEE9A6400C24AF1 /* Sporix.xcdatamodeld */,
+				A48689602DF4E6EC00BABD97 /* Localizable.strings */,
 			);
 			path = Sporix;
 			sourceTree = "<group>";
@@ -400,6 +412,8 @@
 		CEB1DA3B2DE74DCD009F8AB7 /* SporixTests */ = {
 			isa = PBXGroup;
 			children = (
+				A48689B42DF5AE2500BABD97 /* MockNetworkManagerTests.swift */,
+				A48689B22DF5ADCB00BABD97 /* FakeNetworkServices.swift */,
 				CEB1DA3C2DE74DCD009F8AB7 /* SporixTests.swift */,
 			);
 			path = SporixTests;
@@ -483,6 +497,7 @@
 			children = (
 				CEE2EF0F2DEB286F00C8F15F /* SportsCollectionViewCell.xib */,
 				CEE2EF102DEB286F00C8F15F /* SportsCollectionViewCell.swift */,
+				A48689B82DF5E7C200BABD97 /* TabBarViewController.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -584,6 +599,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
 			);
 			mainGroup = CEB1DA162DE74DB1009F8AB7;
 			productRefGroup = CEB1DA202DE74DB1009F8AB7 /* Products */;
@@ -612,6 +628,7 @@
 				A43983972DEE06C8002D25BD /* FixtureCollectionViewCell.xib in Resources */,
 				CEB1DA2F2DE74DCB009F8AB7 /* Assets.xcassets in Resources */,
 				CEB489E22DF0BF4A0054C2F0 /* TeamDetailsTableViewCell.xib in Resources */,
+				A48689622DF4E6EC00BABD97 /* Localizable.strings in Resources */,
 				A43983782DEDE526002D25BD /* LeagueDetails.storyboard in Resources */,
 				CEC8EE542DED2BA200D162BD /* FavTableViewCell.xib in Resources */,
 				CEB1DA2A2DE74DB2009F8AB7 /* Main.storyboard in Resources */,
@@ -710,6 +727,7 @@
 				CE7FCF4F2DEC99B8002190D2 /* LeaguesPresenter.swift in Sources */,
 				A43983962DEE06C8002D25BD /* FixtureCollectionViewCell.swift in Sources */,
 				A439837E2DEE030B002D25BD /* Team.swift in Sources */,
+				A48689B92DF5E7C200BABD97 /* TabBarViewController.swift in Sources */,
 				CEC8EE532DED2BA200D162BD /* FavTableViewCell.swift in Sources */,
 				CE3D7F6B2DEE97030003C7FF /* DatabaseManager.swift in Sources */,
 				CE7FCF472DEC97B8002190D2 /* League.swift in Sources */,
@@ -736,7 +754,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A48689B52DF5AE2600BABD97 /* MockNetworkManagerTests.swift in Sources */,
 				CEB1DA3D2DE74DCD009F8AB7 /* SporixTests.swift in Sources */,
+				A48689B32DF5ADCD00BABD97 /* FakeNetworkServices.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -765,10 +785,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		A48689602DF4E6EC00BABD97 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A48689612DF4E6EC00BABD97 /* en */,
+				A48689652DF4E75800BABD97 /* ar */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		CEB1DA282DE74DB2009F8AB7 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				CEB1DA292DE74DB2009F8AB7 /* Base */,
+				A48689642DF4E75800BABD97 /* ar */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -777,6 +807,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				CEB1DA312DE74DCB009F8AB7 /* Base */,
+				A48689632DF4E75800BABD97 /* ar */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -789,6 +820,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -852,6 +884,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -911,7 +944,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 5A8VN75XKR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Sporix/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -940,7 +973,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 5A8VN75XKR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Sporix/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
