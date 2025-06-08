@@ -7,7 +7,11 @@
 
 import Foundation
 
-class TeamRepository {
+protocol TeamRepositoryProtocol {
+    func getTeamsOrPlayers(leagueId: Int, completion: @escaping (Result<[Any], Error>) -> Void)
+}
+
+final class TeamRepository: TeamRepositoryProtocol {
     private let api: TeamAPI
 
     init(api: TeamAPI) {

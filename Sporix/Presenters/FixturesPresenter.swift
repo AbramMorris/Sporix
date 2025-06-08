@@ -9,7 +9,7 @@ import Foundation
 
 final class FixturesPresenter {
     private weak var view: FixturesViewProtocol?
-    private let repository: FixtureRepository
+    private let repository: FixtureRepositoryProtocol
 
     init(view: FixturesViewProtocol, repository: FixtureRepository) {
         self.view = view

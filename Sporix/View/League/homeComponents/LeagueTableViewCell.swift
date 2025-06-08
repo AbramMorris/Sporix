@@ -8,6 +8,7 @@
 import UIKit
 
 class LeagueTableViewCell: UITableViewCell {
+    @IBOutlet weak var viewContent: UIView!
     @IBOutlet weak var favButton: UIButton!
     @IBOutlet weak var leagueImage: UIImageView!
     @IBOutlet weak var leagueCountry: UILabel!
@@ -24,7 +25,12 @@ class LeagueTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        updateBackground(for: traitCollection)
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.05
+        layer.shadowOffset = CGSize(width: 0, height: 2)
+        layer.shadowRadius = 4
+        layer.masksToBounds = false
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -36,6 +42,7 @@ class LeagueTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10))
+        updateBackground(for: traitCollection)
     }
     
     private func updateFavoriteIcon() {
@@ -56,5 +63,29 @@ class LeagueTableViewCell: UITableViewCell {
         }
         isFavorite.toggle()
     }
-    
+   
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+            updateBackground(for: traitCollection)
+            setNeedsLayout()
+        }
+    }
+
+    private func updateBackground(for traitCollection: UITraitCollection) {
+        if traitCollection.userInterfaceStyle == .dark {
+            viewContent.backgroundColor = .white
+            favButton.setBackgroundImage(nil, for: .normal)
+            favButton.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+
+            leagueCountry.textColor = .black
+            leagueTitle.textColor = .black
+        } else {
+            viewContent.backgroundColor =  UIColor(red: 162/255, green: 192/255, blue: 200/255, alpha: 1) // #a2c0c8
+            leagueCountry.textColor = .label
+            leagueTitle.textColor = .label
+            favButton.backgroundColor = UIColor(red: 162/255, green: 192/255, blue: 200/255, alpha: 1)
+        }
+    }
 }

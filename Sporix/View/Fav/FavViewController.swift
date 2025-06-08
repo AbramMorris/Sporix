@@ -8,6 +8,7 @@
 import UIKit
 
 class FavViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FavoritesViewProtocol   {
+    @IBOutlet weak var backImage: UIImageView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var favTableView: UITableView!
     
@@ -32,7 +33,7 @@ class FavViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         favTableView.dataSource = self
         segmentedControl.selectedSegmentIndex = 0
         favTableView.separatorStyle = .none
-        
+        favTableView.backgroundColor = .clear
         let nib = UINib(nibName: "FavTableViewCell", bundle: nil)
         favTableView.register(nib, forCellReuseIdentifier: "cell")
         
@@ -48,7 +49,28 @@ class FavViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         presenter = FavoritesPresenter(view: self)
         presenter.loadFavorites()
     }
-    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+            updateBackground(for: traitCollection)
+            view.setNeedsLayout()
+        }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        updateBackground(for: traitCollection)
+    }
+
+    private func updateBackground(for traitCollection: UITraitCollection) {
+        if traitCollection.userInterfaceStyle == .dark {
+            backImage.image = UIImage(named: "DarckBack") // Fixed typo
+        } else {
+            backImage.image = UIImage(named: "LightBack")
+        }
+    }
     func showFavorites(_ favorites: [Fav]) {
         self.allItems = favorites
         applyFilter()
@@ -161,7 +183,7 @@ class FavViewController: UIViewController, UITableViewDelegate, UITableViewDataS
 
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             alert.addAction(UIAlertAction(title: "Delete", style: .destructive) { _ in
-                self.presenter.deleteFavorite(by: item.id)
+                self.presenter.deleteFavorite(item.id)
             })
 
             self.present(alert, animated: true)

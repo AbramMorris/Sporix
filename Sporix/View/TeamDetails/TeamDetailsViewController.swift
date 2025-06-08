@@ -156,7 +156,6 @@ class TeamDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         } else {
             cell.playerImage.image = UIImage(systemName: "person.fill")
         }
-
         return cell
     }
 

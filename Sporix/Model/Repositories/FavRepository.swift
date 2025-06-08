@@ -7,8 +7,15 @@
 
 import Foundation
 
-class FavRepository {
-    
+protocol FavRepositoryProtocol {
+    func getFavorites() -> [Fav]
+    func addFavorite(_ fav: Fav)
+    func deleteFavorite(id: Int)
+    func isFavExist(id: Int) -> Bool
+}
+
+final class FavRepository: FavRepositoryProtocol {
+
     func getFavorites() -> [Fav] {
         return DatabaseManager.shared.getAllFavs()
     }

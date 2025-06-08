@@ -40,13 +40,25 @@ final class FixtureAPI {
 
     private func fetchFixtures(leagueId: Int, from: String, to: String, completion: @escaping (Result<[Fixture], Error>) -> Void) {
         let url = sportType.baseURL
-        let parameters: [String: Any] = [
+        var parameters: [String: Any] = [
             "met": "Fixtures",
             "APIkey": Constants.API.apiKey,
             "league_id": leagueId,
             "from": from,
             "to": to
         ]
+        switch sportType {
+              case .tennis:
+                  parameters["league_id"] = leagueId
+              case .basketball:
+                  parameters["league_id"] = leagueId
+              case .football:
+                  parameters["leagueId"] = leagueId
+//            case .cricket:
+//            parameters["league_id"] = leagueId
+              default:
+                  parameters["leagueId"] = leagueId
+              }
         NetworkService.shared.getRequest(url: url, parameters: parameters) { (result: Result<FixturesResponse, AFError>) in
             switch result {
             case .success(let response):

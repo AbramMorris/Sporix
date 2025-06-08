@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SportsViewController: UIViewController {
+class SportsViewController: UIViewController  {
     @IBOutlet weak var backImage: UIImageView!
     
     @IBOutlet weak var homeCollection: UICollectionView!
@@ -21,6 +21,19 @@ class SportsViewController: UIViewController {
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
 
+        if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+            updateBackground(for: traitCollection)
+            view.setNeedsLayout()
+        }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        updateBackground(for: traitCollection)
+    }
+
+    private func updateBackground(for traitCollection: UITraitCollection) {
         if traitCollection.userInterfaceStyle == .dark {
             backImage.image = UIImage(named: "DarckBack")
         } else {

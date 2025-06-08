@@ -7,6 +7,7 @@
 
 import XCTest
 @testable import Sporix
+import Alamofire
 
 final class SporixTests: XCTestCase {
 
@@ -18,19 +19,30 @@ final class SporixTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
+    func testNetworkServiceGetRequest() {
+        let expectation = self.expectation(description: "Fetch leagues API completes")
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+        let sport = SportType.football
+        let endpoint = APIEndpoint.leagues
+        let url = sport.baseURL
+        var parameters = Constants.API.parameters(for: endpoint)
+        parameters["sport"] = sport.rawValue
+
+        NetworkService.shared.getRequest(url: url, parameters: parameters) { (result: Result<LeaguesResponse, AFError>) in
+            switch result {
+            case .success(let leaguesResponse):
+                XCTAssertEqual(leaguesResponse.success, 1, "API success flag should be 1")
+                XCTAssertFalse(leaguesResponse.result.isEmpty, "Result should not be empty")
+                if let firstLeague = leaguesResponse.result.first {
+                    XCTAssertFalse(firstLeague.league_name.isEmpty, "League name should not be empty")
+                }
+            case .failure(let error):
+                print("API call failed with error: \(error.localizedDescription)")
+                XCTFail("API call failed with error: \(error.localizedDescription)")
+            }
+            expectation.fulfill()
         }
+        waitForExpectations(timeout: 15)
     }
 
 }
