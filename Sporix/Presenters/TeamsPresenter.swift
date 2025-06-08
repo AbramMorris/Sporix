@@ -9,7 +9,7 @@ import Foundation
 
 final class TeamsPresenter {
     private weak var view: TeamsViewProtocol?
-    private let repository: TeamRepository
+    private let repository: TeamRepositoryProtocol
     private let sportType: SportType
 
     init(view: TeamsViewProtocol, repository: TeamRepository, sportType: SportType) {

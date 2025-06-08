@@ -183,7 +183,7 @@ class FavViewController: UIViewController, UITableViewDelegate, UITableViewDataS
 
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             alert.addAction(UIAlertAction(title: "Delete", style: .destructive) { _ in
-                self.presenter.deleteFavorite(by: item.id)
+                self.presenter.deleteFavorite(item.id)
             })
 
             self.present(alert, animated: true)

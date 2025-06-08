@@ -7,8 +7,11 @@
 
 import Foundation
 
+protocol LeagueRepositoryProtocol {
+    func getAllLeagues(completion: @escaping (Result<[League], Error>) -> Void)
+}
 
-final class LeagueRepository {
+final class LeagueRepository: LeagueRepositoryProtocol {
     private let api: LeagueAPI
 
     init(api: LeagueAPI) {
