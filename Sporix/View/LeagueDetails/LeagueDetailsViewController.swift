@@ -10,6 +10,7 @@ import Kingfisher
 
 class LeagueDetailsViewController: UIViewController {
 
+    @IBOutlet weak var backImage: UIImageView!
     @IBOutlet weak var teamsLabel: UILabel!
     @IBOutlet weak var leaguePhoto: UIImageView!
     @IBOutlet weak var CountryName: UILabel!
@@ -56,7 +57,29 @@ class LeagueDetailsViewController: UIViewController {
         print("player count:\(players.count)")
 
     }
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
 
+        if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+            updateBackground(for: traitCollection)
+            view.setNeedsLayout()
+        }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        updateBackground(for: traitCollection)
+    }
+
+    private func updateBackground(for traitCollection: UITraitCollection) {
+        if traitCollection.userInterfaceStyle == .dark {
+            backImage.image = UIImage(named: "DarkStade")
+            
+        } else {
+            backImage.image = UIImage(named: "lightStade")
+        }
+    }
     private func setupBackButton() {
         let backButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backButtonTapped))
         navigationItem.leftBarButtonItem = backButton
@@ -98,6 +121,7 @@ class LeagueDetailsViewController: UIViewController {
         [recentCollection, upComingCollection, teamsCollection].forEach {
             $0?.dataSource = self
             $0?.delegate = self
+            $0?.backgroundColor = .clear
         }
     }
 }

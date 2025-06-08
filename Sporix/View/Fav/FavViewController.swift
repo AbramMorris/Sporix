@@ -52,8 +52,21 @@ class FavViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
 
+        if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+            updateBackground(for: traitCollection)
+            view.setNeedsLayout()
+        }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        updateBackground(for: traitCollection)
+    }
+
+    private func updateBackground(for traitCollection: UITraitCollection) {
         if traitCollection.userInterfaceStyle == .dark {
-            backImage.image = UIImage(named: "DarckBack")
+            backImage.image = UIImage(named: "DarckBack") // Fixed typo
         } else {
             backImage.image = UIImage(named: "LightBack")
         }

@@ -85,6 +85,7 @@
                 <outlet property="leagueCountry" destination="lX3-eQ-8VF" id="maR-DK-JFV"/>
                 <outlet property="leagueImage" destination="ax4-xb-ehs" id="YgB-93-80W"/>
                 <outlet property="leagueTitle" destination="mWa-Mp-4F0" id="eU0-R5-Dpi"/>
+                <outlet property="viewContent" destination="H2p-sc-9uM" id="GNs-E8-eqO"/>
             </connections>
             <point key="canvasLocation" x="163.35877862595419" y="58.098591549295776"/>
         </tableViewCell>
