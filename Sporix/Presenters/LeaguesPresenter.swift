@@ -10,13 +10,11 @@ import Foundation
 final class LeaguesPresenter {
     
     private weak var view: LeaguesViewProtocol?
-    private let leagueRepository: LeagueRepository
-    private let favRepository: FavRepository
+    private let leagueRepository: LeagueRepositoryProtocol
 
-    init(view: LeaguesViewProtocol, leagueRepository : LeagueRepository, favRepository : FavRepository) {
+    init(view: LeaguesViewProtocol, leagueRepository : LeagueRepository) {
         self.view = view
         self.leagueRepository = leagueRepository
-        self.favRepository = favRepository
     }
 
     func fetchLeagues() {
@@ -31,18 +29,4 @@ final class LeaguesPresenter {
             }
         }
     }
-    
-    func addLeagueToFavorites(_ league: League,_ sport: String) {
-           let fav = LeagueFavMapper.mapToFav(from: league, sportType: sport)
-           favRepository.addFavorite(fav)
-       }
-
-       func removeLeagueFromFavorites(_ league: League) {
-           favRepository.deleteFavorite(id: league.league_key)
-       }
-
-       func isFavorite(_ leagueId: Int) -> Bool {
-           return favRepository.isFavExist(id: leagueId)
-       }
-    
 }

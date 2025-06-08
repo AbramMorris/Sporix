@@ -7,7 +7,12 @@
 
 import Foundation
 
-final class FixtureRepository {
+protocol FixtureRepositoryProtocol {
+    func getUpcomingFixtures(leagueId: Int, completion: @escaping (Result<[Fixture], Error>) -> Void)
+    func getRecentFixtures(leagueId: Int, completion: @escaping (Result<[Fixture], Error>) -> Void)
+}
+
+final class FixtureRepository: FixtureRepositoryProtocol {
     private let api: FixtureAPI
 
     init(api: FixtureAPI) {

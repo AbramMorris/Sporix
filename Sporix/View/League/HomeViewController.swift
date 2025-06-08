@@ -13,7 +13,8 @@ class HomeViewController: UIViewController ,FavoriteDelegate{
 
     @IBOutlet weak var leagueTableView: UITableView!
     
-    private var presenter: LeaguesPresenter!
+    private var leaguesPresenter: LeaguesPresenter!
+    private var favPresenter: FavoritesPresenter!
     private var leagues: [League] = []
 
     override func viewDidLoad() {
@@ -22,7 +23,7 @@ class HomeViewController: UIViewController ,FavoriteDelegate{
         setupTableView()
         setupBackButton()
         setupPresenter()
-        presenter.fetchLeagues()
+        leaguesPresenter.fetchLeagues()
     }
 
     private func setupPresenter() {
@@ -30,7 +31,8 @@ class HomeViewController: UIViewController ,FavoriteDelegate{
         let api = LeagueAPI(sportType: sportType)
         let leagueRepo = LeagueRepository(api: api)
         let favRepo = FavRepository()
-        presenter = LeaguesPresenter(view: self, leagueRepository: leagueRepo,favRepository: favRepo)
+        leaguesPresenter = LeaguesPresenter(view: self, leagueRepository: leagueRepo)
+        favPresenter = FavoritesPresenter(repository: favRepo)
     }
 
     private func setupTableView() {
@@ -58,11 +60,11 @@ class HomeViewController: UIViewController ,FavoriteDelegate{
     }
     
     func didAddToFavorites(_ league: League) {
-        presenter.addLeagueToFavorites(league,passedFlag!)
+        favPresenter.addFavorite(league,passedFlag!)
     }
 
     func didRemoveFromFavorites(_ league: League) {
-        presenter.removeLeagueFromFavorites(league)
+        favPresenter.deleteFavorite(league.league_key)
     }
 }
 
@@ -95,7 +97,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         let league = leagues[indexPath.row]
         
         cell.league = league
-        cell.isFavorite = presenter.isFavorite(league.league_key)
+        cell.isFavorite = favPresenter.isFavorite(league.league_key)
         cell.delegate = self
 
         cell.leagueTitle.text = league.league_name

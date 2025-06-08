@@ -10,10 +10,14 @@ import Foundation
 final class FavoritesPresenter {
     
     private weak var view: FavoritesViewProtocol?
-    private let repository: FavRepository
+    private let repository: FavRepositoryProtocol
 
     init(view: FavoritesViewProtocol, repository: FavRepository = FavRepository()) {
         self.view = view
+        self.repository = repository
+    }
+    
+    init(repository: FavRepository){
         self.repository = repository
     }
 
@@ -22,14 +26,19 @@ final class FavoritesPresenter {
         view?.showFavorites(favs)
     }
 
-//    func addFavorite(_ fav: Fav) {
-//        repository.addFavorite(fav)
-//        //loadFavorites()
-//    }
+    func addFavorite(_ league: League,_ sport: String){
+        let fav = LeagueFavMapper.mapToFav(from: league, sportType: sport)
+        repository.addFavorite(fav)
+    }
 
-    func deleteFavorite(by id: Int) {
+    func deleteFavorite(_ id: Int) {
         repository.deleteFavorite(id: id)
         loadFavorites()
     }
+    
+    func isFavorite(_ leagueId: Int) -> Bool {
+        return repository.isFavExist(id: leagueId)
+    }
+    
 }
 
