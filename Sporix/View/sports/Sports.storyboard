@@ -128,10 +128,10 @@
             </objects>
             <point key="canvasLocation" x="1814.5038167938931" y="141.5492957746479"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="vbT-Vi-HKW">
             <objects>
-                <tabBarController storyboardIdentifier="tab" automaticallyAdjustsScrollViewInsets="NO" id="bNG-DR-SO6" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tab" automaticallyAdjustsScrollViewInsets="NO" id="bNG-DR-SO6" customClass="TabBarViewController" customModule="Sporix" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LHE-H8-9vf">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
