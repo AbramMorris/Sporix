@@ -29,7 +29,7 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="babababababababababababa" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gm6-S4-euV">
-                        <rect key="frame" x="10" y="180" width="170" height="40.666666666666657"/>
+                        <rect key="frame" x="10" y="180" width="170" height="64"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -42,6 +42,7 @@
                 <constraint firstItem="Gm6-S4-euV" firstAttribute="top" secondItem="Bnx-ev-Fcx" secondAttribute="bottom" constant="10" id="1lX-Uf-XVb"/>
                 <constraint firstAttribute="trailing" secondItem="Gm6-S4-euV" secondAttribute="trailing" constant="10" id="NLI-a0-NQ9"/>
                 <constraint firstItem="Bnx-ev-Fcx" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="VMB-l9-WqQ"/>
+                <constraint firstAttribute="bottom" secondItem="Gm6-S4-euV" secondAttribute="bottom" constant="20" id="VPH-MY-sBO"/>
                 <constraint firstItem="Gm6-S4-euV" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="cOm-2t-4Qx"/>
                 <constraint firstAttribute="trailing" secondItem="Bnx-ev-Fcx" secondAttribute="trailing" constant="20" id="m0n-rT-FBv"/>
                 <constraint firstItem="Bnx-ev-Fcx" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="oEa-fs-7Pe"/>

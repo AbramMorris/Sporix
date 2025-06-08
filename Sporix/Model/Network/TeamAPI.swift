@@ -25,7 +25,7 @@ final class TeamAPI {
         ]
         let TennisParameters: [String: Any] = [
             "met": "Players",
-            "leagueId": 12399,
+            "leagueId": leagueId,
             "APIkey": Constants.API.apiKey
         ]
 

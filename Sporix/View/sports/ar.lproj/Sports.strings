@@ -1,0 +1,24 @@
+
+/* Class = "UITabBarItem"; title = "Fav"; ObjectID = "LEQ-sK-FVQ"; */
+"LEQ-sK-FVQ.title" = "المفضلة";
+
+/* Class = "UISegmentedControl"; W4A-td-BR1.segmentTitles[0] = "All"; ObjectID = "W4A-td-BR1"; */
+"W4A-td-BR1.segmentTitles[0]" = "الكل";
+
+/* Class = "UISegmentedControl"; W4A-td-BR1.segmentTitles[1] = "FootBall"; ObjectID = "W4A-td-BR1"; */
+"W4A-td-BR1.segmentTitles[1]" = "كرة القدم";
+
+/* Class = "UISegmentedControl"; W4A-td-BR1.segmentTitles[2] = "BasketBall"; ObjectID = "W4A-td-BR1"; */
+"W4A-td-BR1.segmentTitles[2]" = "كرة السلة";
+
+/* Class = "UISegmentedControl"; W4A-td-BR1.segmentTitles[3] = "Cricket"; ObjectID = "W4A-td-BR1"; */
+"W4A-td-BR1.segmentTitles[3]" = "كريكت";
+
+/* Class = "UISegmentedControl"; W4A-td-BR1.segmentTitles[4] = "Tennis"; ObjectID = "W4A-td-BR1"; */
+"W4A-td-BR1.segmentTitles[4]" = "تنس";
+
+/* Class = "UITabBarItem"; title = "Sports"; ObjectID = "tJc-lr-HjT"; */
+"tJc-lr-HjT.title" = "الرياضات";
+
+/* Class = "UILabel"; text = "Favourite"; ObjectID = "vyP-VK-JgA"; */
+"vyP-VK-JgA.text" = "المفضلة";
