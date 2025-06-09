@@ -36,7 +36,6 @@ class LeagueTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
     
     override func layoutSubviews() {
@@ -82,7 +81,7 @@ class LeagueTableViewCell: UITableViewCell {
             leagueCountry.textColor = .black
             leagueTitle.textColor = .black
         } else {
-            viewContent.backgroundColor =  UIColor(red: 162/255, green: 192/255, blue: 200/255, alpha: 1) // #a2c0c8
+            viewContent.backgroundColor =  UIColor(red: 162/255, green: 192/255, blue: 200/255, alpha: 1) 
             leagueCountry.textColor = .label
             leagueTitle.textColor = .label
             favButton.backgroundColor = UIColor(red: 162/255, green: 192/255, blue: 200/255, alpha: 1)

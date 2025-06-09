@@ -12,6 +12,7 @@ class FixtureCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var matchDate: UILabel!
     @IBOutlet weak var teamImage1: UIImageView!
     
+    @IBOutlet weak var vsPic: UIImageView!
     @IBOutlet weak var matchResult: UILabel!
     @IBOutlet weak var team2Name: UILabel!
     @IBOutlet weak var team1Name: UILabel!
@@ -42,7 +43,7 @@ class FixtureCollectionViewCell: UICollectionViewCell {
             team2Name.textColor = .black
             team1Name.textColor = .black
         } else {
-            self.backgroundColor =  UIColor(red: 162/255, green: 192/255, blue: 200/255, alpha: 1) // #a2c0c8
+            self.backgroundColor =  UIColor(red: 162/255, green: 192/255, blue: 200/255, alpha: 1) 
             matchTime.textColor = .label
             matchDate.textColor = .label
             matchResult.textColor = .label

@@ -81,7 +81,6 @@ extension HomeViewController: LeaguesViewProtocol {
     }
 }
 
-// MARK: - UITableViewDataSource & Delegate
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 

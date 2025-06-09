@@ -14,7 +14,6 @@ final class FixtureAPI {
         self.sportType = sportType
     }
 
-    // MARK: - Public Methods
 
     func fetchUpcomingFixtures(leagueId: Int, completion: @escaping (Result<[Fixture], Error>) -> Void) {
         let today = Date()
@@ -37,8 +36,6 @@ final class FixtureAPI {
         fetchFixtures(leagueId: leagueId, from: from, to: to, completion: completion)
     }
 
-    // MARK: - Private Base Request
-
     private func fetchFixtures(leagueId: Int, from: String, to: String, completion: @escaping (Result<[Fixture], Error>) -> Void) {
         let url = sportType.baseURL
         var parameters: [String: Any] = [
@@ -57,18 +54,7 @@ final class FixtureAPI {
             newParameters["leagueId"] = leagueId
             parameters = newParameters
         }
-//        switch sportType {
-//              case .tennis:
-//                  parameters["league_id"] = leagueId
-//              case .basketball:
-//                  parameters["league_id"] = leagueId
-//              case .football:
-//                  parameters["leagueId"] = leagueId
-////            case .cricket:
-////            parameters["league_id"] = leagueId
-//              default:
-//                  parameters["leagueId"] = leagueId
-//              }
+
         NetworkService.shared.getRequest(url: url, parameters: parameters) { (result: Result<FixturesResponse, AFError>) in
             switch result {
             case .success(let response):

@@ -20,7 +20,6 @@ final class LeagueAPI {
         let url = sportType.baseURL
         var parameters = Constants.API.parameters(for: .leagues)
         
-        // Get device language (e.g., "en", "fr")
         let language = Locale.current.languageCode ?? "en"
         parameters["lang"] = language
         
