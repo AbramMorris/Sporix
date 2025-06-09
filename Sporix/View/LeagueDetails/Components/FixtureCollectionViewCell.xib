@@ -108,6 +108,7 @@
                 <outlet property="team2Name" destination="v4X-Te-IFY" id="SSO-4c-kvk"/>
                 <outlet property="teamImage1" destination="VKw-AM-ZhG" id="cHs-3R-mqV"/>
                 <outlet property="teamImage2" destination="syl-ZS-N5f" id="LAK-5g-XuD"/>
+                <outlet property="vsPic" destination="c9p-pw-7OO" id="h2o-sz-KWo"/>
             </connections>
             <point key="canvasLocation" x="363.35877862595419" y="104.22535211267606"/>
         </collectionViewCell>

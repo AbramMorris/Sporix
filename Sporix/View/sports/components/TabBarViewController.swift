@@ -21,7 +21,6 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         setupCustomTabBar()
         setupCenterButton()
         addCircleLayer()
-//        updateCircleLayer(for: selectedIndex)
     }
 
     private func setupCustomTabBar() {
@@ -66,7 +65,6 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     @objc private func centerButtonTapped() {
         self.selectedIndex = 2
         animateCenterButton()
-//        updateCircleLayer(for: 2)
     }
 
     private func animateCenterButton() {
@@ -86,47 +84,17 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         circleLayer?.backgroundColor = UIColor.clear.cgColor
         circleLayer?.borderWidth = 2
         circleLayer?.cornerRadius = 25
-//        updateCircleBorderColor()
         tabBar.layer.addSublayer(circleLayer!)
     }
 
-//    private func updateCircleLayer(for index: Int) {
-//        guard let circleLayer = circleLayer else { return }
-//
-//        let tabBarButtons = tabBar.subviews.filter { $0 is UIControl && $0 != centerButton }
-//        if index < tabBarButtons.count {
-//            let itemFrame = tabBarButtons[index].frame
-//
-//            let diameter: CGFloat = 50
-//            let x = itemFrame.midX - diameter / 2
-//            let y = itemFrame.midY - diameter / 2
-//
-//            UIView.animate(withDuration: 0.25) {
-//                self.circleLayer?.frame = CGRect(x: x, y: y, width: diameter, height: diameter)
-//                self.circleLayer?.cornerRadius = diameter / 2
-//            }
-//        }
-//    }
 
-//    private func updateCircleBorderColor() {
-//        if traitCollection.userInterfaceStyle == .dark {
-//            circleLayer?.borderColor = UIColor.systemBlue.cgColor
-//        } else {
-//            circleLayer?.borderColor = UIColor.gray.cgColor
-//        }
-//    }
-
-    // Keep the center button and circle layer in place when layout updates
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
         centerButton.center = CGPoint(x: tabBar.center.x, y: tabBar.frame.minY)
 
-        // Update circle layer position to selected tab
-//        updateCircleLayer(for: selectedIndex)
     }
 
-    // Detect dark/light mode changes
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
 
@@ -136,15 +104,11 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
             } else {
                 tabBar.backgroundColor = .white
             }
-
-//            updateCircleBorderColor()
         }
     }
 
-    // Animate circle on tab switch
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         if let index = viewControllers?.firstIndex(of: viewController) {
-//            updateCircleLayer(for: index)
         }
     }
 }

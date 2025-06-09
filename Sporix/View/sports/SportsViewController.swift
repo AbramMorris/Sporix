@@ -23,7 +23,6 @@ class SportsViewController: UIViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
-//        print(NSLocalizedString("aloo", comment: ""))
 
     }
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -100,7 +99,6 @@ class SportsViewController: UIViewController  {
     }
 }
 
-// MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 
 extension SportsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
