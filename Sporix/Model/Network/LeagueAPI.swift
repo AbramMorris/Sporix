@@ -18,7 +18,11 @@ final class LeagueAPI {
     
     func fetchAllLeagues(completion: @escaping (Result<[League], Error>) -> Void) {
         let url = sportType.baseURL
-        let parameters = Constants.API.parameters(for: .leagues)
+        var parameters = Constants.API.parameters(for: .leagues)
+        
+        // Get device language (e.g., "en", "fr")
+        let language = Locale.current.languageCode ?? "en"
+        parameters["lang"] = language
         
         NetworkService.shared.getRequest(url: url, parameters: parameters) { (result: Result<LeaguesResponse, AFError>) in
             switch result {
