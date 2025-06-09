@@ -33,7 +33,7 @@ class TeamsCollectionViewCell: UICollectionViewCell {
             teamName.textColor = .black
 
         } else {
-            self.backgroundColor =  UIColor(red: 162/255, green: 192/255, blue: 200/255, alpha: 1) // #a2c0c8
+            self.backgroundColor =  UIColor(red: 162/255, green: 192/255, blue: 200/255, alpha: 1) 
             teamName.textColor = .label
         }
     }

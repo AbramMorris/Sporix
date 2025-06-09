@@ -13,10 +13,17 @@ class SportsViewController: UIViewController  {
     @IBOutlet weak var homeCollection: UICollectionView!
     
     let items = ["football", "basketball", "cricket", "tennis"]
+    let item1 = [
+        NSLocalizedString("sport", comment: ""),
+        NSLocalizedString("sport1", comment: ""),
+        NSLocalizedString("sport3", comment: ""),
+        NSLocalizedString("sport4", comment: "")
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
+
     }
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
@@ -92,7 +99,6 @@ class SportsViewController: UIViewController  {
     }
 }
 
-// MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 
 extension SportsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -105,7 +111,7 @@ extension SportsViewController: UICollectionViewDelegate, UICollectionViewDataSo
             return UICollectionViewCell()
         }
         cell.homeImage.image = UIImage(named: items[indexPath.item])
-        cell.titleHome.text = items[indexPath.item]
+        cell.titleHome.text = item1[indexPath.item]
         cell.titleHome.textColor = .white
         cell.backgroundColor = .lightGray
         cell.layer.cornerRadius = 15

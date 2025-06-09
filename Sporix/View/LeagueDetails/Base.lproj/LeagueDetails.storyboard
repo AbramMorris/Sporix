@@ -121,7 +121,7 @@
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="v9h-7B-bxU">
                                                 <rect key="frame" x="0.0" y="961" width="384" height="200"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="200" id="wTs-xU-kNd"/>
+                                                    <constraint firstAttribute="height" constant="250" id="wTs-xU-kNd"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BS8-VF-3gG">
                                                     <size key="itemSize" width="128" height="128"/>

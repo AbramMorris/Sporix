@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  Sporix
+
+  Created by abram on 08/06/2025.
+  
+*/
+"onBoarding1" = "ابدأ لعبتك مع سبوريكس.";
+"onBoarding2" = "سدد، سجل، وتابع إحصائياتك.";
+"onBoarding3" = "كوّن علاقات مع اللاعبين.";
+"onBoarding4" = "ابدأ رحلتك في الكريكيت الآن!";
+"sport" = "كرة القدم";
+"sport1" = "كرة السلة";
+"sport3" = "كريكت";
+"sport4" = "تنس";
+"Start"="ابدأ";

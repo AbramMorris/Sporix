@@ -1,0 +1,29 @@
+
+
+
+
+/* Class = "UITabBarItem"; title = "Fav"; ObjectID = "LEQ-sK-FVQ"; */
+"LEQ-sK-FVQ.title" = "Fav";
+
+/* Class = "UISegmentedControl"; W4A-td-BR1.segmentTitles[0] = "All"; ObjectID = "W4A-td-BR1"; */
+"W4A-td-BR1.segmentTitles[0]" = "All";
+
+/* Class = "UISegmentedControl"; W4A-td-BR1.segmentTitles[1] = "FootBall"; ObjectID = "W4A-td-BR1"; */
+"W4A-td-BR1.segmentTitles[1]" = "FootBall";
+
+/* Class = "UISegmentedControl"; W4A-td-BR1.segmentTitles[2] = "BasketBall"; ObjectID = "W4A-td-BR1"; */
+"W4A-td-BR1.segmentTitles[2]" = "BasketBall";
+
+/* Class = "UISegmentedControl"; W4A-td-BR1.segmentTitles[3] = "Cricket"; ObjectID = "W4A-td-BR1"; */
+"W4A-td-BR1.segmentTitles[3]" = "Cricket";
+
+/* Class = "UISegmentedControl"; W4A-td-BR1.segmentTitles[4] = "Tennis"; ObjectID = "W4A-td-BR1"; */
+"W4A-td-BR1.segmentTitles[4]" = "Tennis";
+
+/* Class = "UITabBarItem"; title = "Sports"; ObjectID = "tJc-lr-HjT"; */
+"tJc-lr-HjT.title" = "Sports";
+
+/* Class = "UILabel"; text = "Favourite"; ObjectID = "vyP-VK-JgA"; */
+"vyP-VK-JgA.text" = "Favourite";
+
+
